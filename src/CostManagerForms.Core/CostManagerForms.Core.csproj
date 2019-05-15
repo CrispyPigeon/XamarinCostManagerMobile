@@ -5,8 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
     <PackageReference Include="MvvmCross" Version="6.2.3" />
     <PackageReference Include="MvvmCross.CodeAnalysis" Version="6.2.3" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
