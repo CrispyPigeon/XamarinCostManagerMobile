@@ -59,5 +59,50 @@ namespace CostManagerForms.Core.Localization {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check your internet connection..
+        /// </summary>
+        internal static string NoConnectionMessage {
+            get {
+                return ResourceManager.GetString("NoConnectionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Connection.
+        /// </summary>
+        internal static string NoConnectionTitle {
+            get {
+                return ResourceManager.GetString("NoConnectionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open App Settings.
+        /// </summary>
+        internal static string OpenAppSettings {
+            get {
+                return ResourceManager.GetString("OpenAppSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough permission!.
+        /// </summary>
+        internal static string PermissionDeniedMessage {
+            get {
+                return ResourceManager.GetString("PermissionDeniedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Permissions.
+        /// </summary>
+        internal static string PermissionDeniedTitle {
+            get {
+                return ResourceManager.GetString("PermissionDeniedTitle", resourceCulture);
+            }
+        }
     }
 }

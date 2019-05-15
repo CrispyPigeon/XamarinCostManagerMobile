@@ -55,7 +55,7 @@ namespace DAL.Services.RequestProvider
             {
                 foreach ((string, string) parameter in bodyParametersList)
                 {
-                    request.AddParameter(parameter.Item1, parameter.Item2);
+                    request.AddParameter(parameter.Item1, parameter.Item2, ParameterType.RequestBody);
                 }
             }
 

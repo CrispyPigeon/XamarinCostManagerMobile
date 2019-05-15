@@ -3,6 +3,9 @@ using MvvmCross.ViewModels;
 using CostManagerForms.Core.ViewModels.Home;
 using MvvmCross;
 using Acr.UserDialogs;
+using CostManagerForms.Core.ViewModels.SignIn;
+using DAL.Services.RequestProvider;
+using DAL.Services.CostManager;
 
 namespace CostManagerForms.Core
 {
@@ -16,7 +19,11 @@ namespace CostManagerForms.Core
 
             _ioC.RegisterSingleton<IUserDialogs>(() => UserDialogs.Instance);
 
-            RegisterAppStart<HomeViewModel>();
+            _ioC.ConstructAndRegisterSingleton<IRequestProvider, RequestProvider>();
+
+            _ioC.ConstructAndRegisterSingleton<ICostManagerService, CostManagerService>();
+
+            RegisterAppStart<SignInViewModel>();
         }
     }
 }

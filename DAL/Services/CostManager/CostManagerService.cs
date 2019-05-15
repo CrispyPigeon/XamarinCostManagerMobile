@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Helpers;
 using DAL.Services.RequestProvider;
+using Model.RequestItems;
 using Model.RequestItems.Base;
 using RestSharp;
 
@@ -18,7 +19,7 @@ namespace DAL.Services.CostManager
             _requestProvider = requestProvider;
         }
 
-        public async Task<Message> SignInAsync(string userName, string password)
+        public async Task<Login> SignInAsync(string userName, string password)
         {
             var request = Consts.LoginEndPoint;
 
@@ -31,12 +32,12 @@ namespace DAL.Services.CostManager
                         (Consts.Username, userName),
                         (Consts.Password, password)
                     }))
-        };
+            };
 
-            var login = await _requestProvider.MakeApiCall<Message>(request,
-                                                                    Consts.ContentTypeUrlencoded,
-                                                                    Method.POST, bodyParametersList: bodyParameters)
-                    ?? throw new Exception();
+            var login = await _requestProvider.MakeApiCall<Login>(request,
+                                                                  Consts.ContentTypeUrlencoded,
+                                                                  Method.POST, bodyParametersList: bodyParameters)
+                                                                  ?? throw new Exception();
 
             _requestProvider.Token = login.Token;
 
