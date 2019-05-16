@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CostManagerForms.UI.Controls.Bars.TransparentNavigationBar">
+    
+    <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand"
+              RowSpacing="0"
+              Margin="0,30,0,0"
+              BackgroundColor="Transparent"
+              HeightRequest="40">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Back button image. -->
+            <Image Source="IcoHamburger.png"
+                   WidthRequest="35"
+                   HeightRequest="35"
+                   VerticalOptions="Center"
+                   Margin="{StaticResource HorizontalPrimaryButtonLeftMargin}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MenuCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Title , Margin to resolve bad image -->
+            <Label x:Name="TitleLabel"
+                   Grid.ColumnSpan="2"
+                   Margin="0,2,0,0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="Large"/>
+            
+        </Grid>
+    </ContentView.Content>
+</ContentView>

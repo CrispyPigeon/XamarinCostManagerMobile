@@ -1,6 +1,5 @@
 using MvvmCross.IoC;
 using MvvmCross.ViewModels;
-using CostManagerForms.Core.ViewModels.Home;
 using MvvmCross;
 using Acr.UserDialogs;
 using CostManagerForms.Core.ViewModels.SignIn;

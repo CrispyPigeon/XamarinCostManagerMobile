@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using MvvmCross.Forms.Platforms.Android.Views;
 using CostManagerForms.Core.ViewModels.Main;
+using Plugin.CurrentActivity;
 
 namespace CostManagerForms.Droid
 {
@@ -22,7 +23,7 @@ namespace CostManagerForms.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            CrossCurrentActivity.Current.Init(this, bundle);
             base.OnCreate(bundle);
         }
     }
