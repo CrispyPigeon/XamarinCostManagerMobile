@@ -11,6 +11,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <resources:Colors />
+                <resources:Dimens />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

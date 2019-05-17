@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <base:BaseMvxContentPage x:TypeArguments="viewModels:SignInViewModel"
-                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
-                      xmlns="http://xamarin.com/schemas/2014/forms"
-                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                      xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.SignIn;assembly=CostManagerForms.Core"
-                      xmlns:base="clr-namespace:CostManagerForms.UI.Pages.Base;assembly=CostManagerForms.UI"
-                      x:Class="CostManagerForms.UI.Pages.SignInPage">
+                         xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                         xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.SignIn;assembly=CostManagerForms.Core"
+                         xmlns:base="clr-namespace:CostManagerForms.UI.Pages.Base;assembly=CostManagerForms.UI"
+                         x:Class="CostManagerForms.UI.Pages.SignInPage"
+                         BackgroundColor="{StaticResource PrimaryLightColor}">
 
-    
+    <Grid Margin="{StaticResource MediumMargin}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2.5*"/>
+        </Grid.RowDefinitions>
+
+        <AbsoluteLayout Grid.Row="0"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+
+            <Image AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0.5,0.35,0.6,0.6"
+                   Source="NoteLogo.png"/>
+
+        </AbsoluteLayout>
+
+    </Grid>
 
 </base:BaseMvxContentPage>
