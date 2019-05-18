@@ -61,6 +61,69 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please fill in all fields!.
+        /// </summary>
+        internal static string EmptyFieldsMessage {
+            get {
+                return ResourceManager.GetString("EmptyFieldsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty fields.
+        /// </summary>
+        internal static string EmptyFieldsTitle {
+            get {
+                return ResourceManager.GetString("EmptyFieldsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please change username!.
+        /// </summary>
+        internal static string ExistsUsernameMessage {
+            get {
+                return ResourceManager.GetString("ExistsUsernameMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration failed.
+        /// </summary>
+        internal static string ExistsUsernameTitle {
+            get {
+                return ResourceManager.GetString("ExistsUsernameTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check fields!.
+        /// </summary>
+        internal static string IncorrectDataMessage {
+            get {
+                return ResourceManager.GetString("IncorrectDataMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect data.
+        /// </summary>
+        internal static string IncorrectDataTitle {
+            get {
+                return ResourceManager.GetString("IncorrectDataTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check your internet connection..
         /// </summary>
         internal static string NoConnectionMessage {
@@ -88,6 +151,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not enough permission!.
         /// </summary>
         internal static string PermissionDeniedMessage {
@@ -102,6 +174,24 @@ namespace CostManagerForms.Core.Localization {
         internal static string PermissionDeniedTitle {
             get {
                 return ResourceManager.GetString("PermissionDeniedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration.
+        /// </summary>
+        internal static string Registration {
+            get {
+                return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        internal static string SignIn {
+            get {
+                return ResourceManager.GetString("SignIn", resourceCulture);
             }
         }
     }

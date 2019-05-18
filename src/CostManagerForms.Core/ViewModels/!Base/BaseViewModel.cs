@@ -44,7 +44,7 @@ namespace CostManagerForms.Core.ViewModels
             _canNavigatePage = true;
         }
 
-        public async Task RequestCommand(Func<Delegate, Task> action, string loadingTitle = null)
+        public async Task RequestCommand(Func<Task> action, string loadingTitle = null)
         {
             if (!IsConnected)
             {
@@ -54,7 +54,7 @@ namespace CostManagerForms.Core.ViewModels
             await LoadingCommand(action, loadingTitle);
         }
 
-        public async Task RequestCommand<TParam>(Func<Delegate, TParam, Task> action, TParam obj, string loadingTitle = null)
+        public async Task RequestCommand<TParam>(Func<TParam, Task> action, TParam obj, string loadingTitle = null)
         {
             if (!IsConnected)
             {
@@ -64,20 +64,20 @@ namespace CostManagerForms.Core.ViewModels
             await LoadingCommand(action, obj, loadingTitle);
         }
 
-        public async Task LoadingCommand(Func<Delegate, Task> action, string loadingTitle = null)
+        public async Task LoadingCommand(Func<Task> action, string loadingTitle = null)
         {
             _dialogs.ShowLoading(loadingTitle);
 
-            await action(new Action(_dialogs.HideLoading));
+            await action();
 
             _dialogs.HideLoading();
         }
 
-        public async Task LoadingCommand<TParam>(Func<Delegate, TParam, Task> action, TParam obj, string loadingTitle = null)
+        public async Task LoadingCommand<TParam>(Func< TParam, Task> action, TParam obj, string loadingTitle = null)
         {
             _dialogs.ShowLoading(loadingTitle);
 
-            await action(new Action(_dialogs.HideLoading), obj);
+            await action(obj);
 
             _dialogs.HideLoading();
         }

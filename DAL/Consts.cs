@@ -20,8 +20,11 @@ namespace DAL
         public const string GrantType = "grant_type";
         public const string Password = "password";
         public const string Username = "username";
+        public const string Login = "Login"; 
+        public const string ConfirmPassword = "ConfirmPassword";
 
         // <== Request End Points ==>
         public const string LoginEndPoint = "account/login";
+        public const string RegistrationEndPoint = "account/register";
     }
 }

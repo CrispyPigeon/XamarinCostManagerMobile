@@ -4,29 +4,91 @@
                          xmlns="http://xamarin.com/schemas/2014/forms"
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                          xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.SignIn;assembly=CostManagerForms.Core"
-                         xmlns:base="clr-namespace:CostManagerForms.UI.Pages.Base;assembly=CostManagerForms.UI"
+                         xmlns:base="clr-namespace:CostManagerForms.UI.Pages.Base;assembly=CostManagerForms.UI"                      
+                         xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
+                         xmlns:entries="clr-namespace:CostManagerForms.UI.Renderers.Entries"
                          x:Class="CostManagerForms.UI.Pages.SignInPage"
-                         BackgroundColor="{StaticResource PrimaryLightColor}">
+                         BackgroundImage="Background.png">
 
-    <Grid Margin="{StaticResource MediumMargin}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SignInFrameStyle" TargetType="Frame">
+                <Setter Property="Padding" Value="8"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}"/>
+                <Setter Property="BorderColor" Value="{StaticResource SecondaryTextColor}"/>
+            </Style>
+            <Style x:Key="SignInEntryStyle" TargetType="entries:IconEntry">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource SecondaryTextColor}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="{StaticResource HugeMargin}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <AbsoluteLayout Grid.Row="0"
-                        VerticalOptions="FillAndExpand"
-                        HorizontalOptions="FillAndExpand">
+        <Label Grid.Row="0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               FontSize="48"
+               FontAttributes="Bold"
+               TextColor="{StaticResource SecondaryTextColor}"
+               Text="{extensions:Translate SignIn}"/>
 
-            <Image AbsoluteLayout.LayoutFlags="All"
-                   AbsoluteLayout.LayoutBounds="0.5,0.35,0.6,0.6"
-                   Source="NoteLogo.png"/>
+        <Frame Grid.Row="1"
+               Style="{StaticResource SignInFrameStyle}">
 
-        </AbsoluteLayout>
+            <entries:IconEntry Image="IcoAccount"
+                               ReturnType="Next"
+                               Placeholder="{extensions:Translate Login}"
+                               Style="{StaticResource SignInEntryStyle}"
+                               Text="{Binding Login}"
+                               FocusView="{x:Reference PasswordEntry}"/>
+
+        </Frame>
+
+        <Frame Grid.Row="2"
+               Style="{StaticResource SignInFrameStyle}">
+
+            <entries:IconEntry x:Name="PasswordEntry"
+                               Image="IcoPassword"
+                               IsPassword="True"
+                               Placeholder="{extensions:Translate Password}"
+                               Style="{StaticResource SignInEntryStyle}"
+                               Text="{Binding Password}"
+                               ReturnType="Done"/>
+
+        </Frame>
+
+        <Button Grid.Row="4"
+                CornerRadius="20"
+                Padding="0,16"                
+                FontSize="Large"
+                BackgroundColor="{StaticResource PrimaryLightColor}"
+                TextColor="{StaticResource SecondaryTextColor}"
+                Text="{extensions:Translate SignIn}"
+                Command="{Binding SignInCommand}"/>
+
+        <Label Grid.Row="5"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextDecorations="Underline"
+               TextColor="{StaticResource SecondaryTextColor}"
+               Text="{extensions:Translate Registration}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RegistrateCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
 
     </Grid>
 

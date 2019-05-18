@@ -7,5 +7,6 @@ namespace DAL.Services.CostManager
     public interface ICostManagerService
     {
         Task<Login> SignInAsync(string userName, string password);
+        Task<Message> RegisterAsync(string userName, string password);
     }
 }

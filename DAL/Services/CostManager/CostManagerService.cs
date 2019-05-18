@@ -43,5 +43,25 @@ namespace DAL.Services.CostManager
 
             return login;
         }
+
+        public async Task<Message> RegisterAsync(string userName, string password)
+        {
+            var request = Consts.RegistrationEndPoint;
+
+            var bodyParameters = new List<(string, string)>
+            {
+                (Consts.ContentTypeUrlencoded, ParametersHelper.CreateBodyParameters(
+                    new List<(string, string)>
+                    {
+                        (Consts.Login, userName),
+                        (Consts.Password, password)
+                    }))
+            };
+
+            return await _requestProvider.MakeApiCall<Message>(request,
+                                                               Consts.ContentTypeUrlencoded,
+                                                               Method.POST, bodyParametersList: bodyParameters)
+                                                               ?? throw new Exception();
+        }
     }
 }

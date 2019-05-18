@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <color android:color="@color/primaryColor" />
+        <color android:color="@color/primaryTextColor" />
     </item>
-    <item>
-        <bitmap android:src="@drawable/LogoHiRes"
-                android:tileMode="disabled"
-                android:gravity="center"
-                android:layout_gravity="center" />
-    </item>
+    
+    <item android:width="200dp"
+          android:height="200dp"
+          android:drawable="@drawable/LogoHiRes"
+          android:gravity="center"/>
 </layer-list>
