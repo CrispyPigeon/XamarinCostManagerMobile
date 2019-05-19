@@ -5,6 +5,9 @@ using Acr.UserDialogs;
 using CostManagerForms.Core.ViewModels.SignIn;
 using DAL.Services.RequestProvider;
 using DAL.Services.CostManager;
+using Xamarin.Forms;
+using System;
+using CostManagerForms.Core.ViewModels.Main;
 
 namespace CostManagerForms.Core
 {
@@ -21,8 +24,22 @@ namespace CostManagerForms.Core
             _ioC.ConstructAndRegisterSingleton<IRequestProvider, RequestProvider>();
 
             _ioC.ConstructAndRegisterSingleton<ICostManagerService, CostManagerService>();
+            
+            StartViewModel();            
+        }
 
-            RegisterAppStart<SignInViewModel>();
+        private void StartViewModel()
+        {
+            var token = (string)Application.Current.Properties["token"];
+
+            if (token == string.Empty)
+            {
+                RegisterAppStart<SignInViewModel>();
+            }
+            else
+            {
+                RegisterAppStart<MainViewModel>();
+            }
         }
     }
 }

@@ -7,7 +7,6 @@ using Xamarin.Forms.Xaml;
 namespace CostManagerForms.UI.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [MvxContentPagePresentation(WrapInNavigationPage = true)]
     public partial class SignInPage : BaseMvxContentPage<SignInViewModel>
     {
         public SignInPage()

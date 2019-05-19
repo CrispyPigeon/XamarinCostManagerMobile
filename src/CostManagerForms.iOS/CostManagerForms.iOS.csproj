@@ -98,6 +98,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microcharts.Forms">
+      <Version>0.7.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmCross">
       <Version>6.2.3</Version>
     </PackageReference>

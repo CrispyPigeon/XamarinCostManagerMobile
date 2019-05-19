@@ -79,14 +79,7 @@ namespace CostManagerForms.Core.ViewModels.SignIn
                 return;
             }
 
-            if (_save)
-            {
-                Application.Current.Properties["token"] = login.Token;
-            }
-            else
-            {
-                Application.Current.Properties["token"] = string.Empty;
-            }
+            Application.Current.Properties["token"] = login.Token;            
 
             _dialogs.Alert(login.Token);
         }
