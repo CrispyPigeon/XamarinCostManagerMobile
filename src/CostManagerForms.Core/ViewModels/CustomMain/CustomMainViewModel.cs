@@ -6,7 +6,7 @@ using MvvmCross.Commands;
 
 namespace CostManagerForms.Core.ViewModels.MainCommon
 {
-    public class MainCommonViewModel : BaseViewModel
+    public class CustomMainViewModel : BaseViewModel
     {
         private int _viewModelPosition;
         public int ViewModelPosition
@@ -27,7 +27,7 @@ namespace CostManagerForms.Core.ViewModels.MainCommon
         public IMvxCommand GoToCostsPartCommand { get; }
         public IMvxCommand OpenMenuCommand { get; }
 
-        public MainCommonViewModel()
+        public CustomMainViewModel()
         {
             //Init ViewModels
 

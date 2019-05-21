@@ -7,6 +7,7 @@ using DAL.Services.RequestProvider;
 using Model.RequestItems;
 using Model.RequestItems.Base;
 using RestSharp;
+using Xamarin.Forms;
 
 namespace DAL.Services.CostManager
 {
@@ -62,6 +63,16 @@ namespace DAL.Services.CostManager
                                                                Consts.ContentTypeUrlencoded,
                                                                Method.POST, bodyParametersList: bodyParameters)
                                                                ?? throw new Exception();
+        }
+
+        public async Task<List<CostByWallet>> GetCommonStatistic()
+        {
+            var request = Consts.CommonStatisticsEndPoint;
+            _requestProvider.Token = (string)Application.Current.Properties["token"];
+            return await _requestProvider.MakeApiCall<List<CostByWallet>>(request,
+                       Consts.ContentTypeUrlencoded,
+                       Method.GET)
+                   ?? throw new Exception();
         }
     }
 }

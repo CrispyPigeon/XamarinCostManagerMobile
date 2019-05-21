@@ -26,5 +26,6 @@ namespace DAL
         // <== Request End Points ==>
         public const string LoginEndPoint = "account/login";
         public const string RegistrationEndPoint = "account/register";
+        public const string CommonStatisticsEndPoint = "commonstatistic";
     }
 }
