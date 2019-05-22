@@ -40,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controls\Views\Statistics\" />
     <Folder Include="Services\TopBar\" />
   </ItemGroup>
 

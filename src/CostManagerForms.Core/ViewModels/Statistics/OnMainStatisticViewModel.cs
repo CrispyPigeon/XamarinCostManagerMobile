@@ -43,7 +43,7 @@ namespace CostManagerForms.Core.ViewModels.Statistics
             StatisticChart.Entries = statList.Costs.Select(x => new Entry((float)x.Sum)
             {
                 ValueLabel = x.Sum.ToString()
-            }).ToArray();
+            }).ToArray(); 
         }
     }
 }
