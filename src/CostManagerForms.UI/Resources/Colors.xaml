@@ -8,9 +8,9 @@
     <Color x:Key="PrimaryDarkColor">#660B32</Color>
     <Color x:Key="PrimaryLightColor">#ED5094</Color>
 
-    <Color x:Key="AccentColor">#24b780</Color>
-    <Color x:Key="AccentDarkColor">#008653</Color>
-    <Color x:Key="AccentLightColor">#64eab0</Color>
+    <Color x:Key="AccentColor">#F688D3</Color>
+    <Color x:Key="AccentDarkColor">#8E2E70</Color>
+    <Color x:Key="AccentLightColor">#FDDEF3</Color>
 
     <Color x:Key="PrimaryTextColor">#000000</Color>
     <Color x:Key="SecondaryTextColor">#ffffff</Color>

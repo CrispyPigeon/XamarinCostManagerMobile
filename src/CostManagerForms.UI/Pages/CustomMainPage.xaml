@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxTabbedPage x:TypeArguments="viewModels:CustomMainViewModel"
+                     xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                     xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.CustomMain;assembly=CostManagerForms.Core"
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="CostManagerForms.UI.Pages.CustomMainPage"
+                     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                     xmlns:pages="clr-namespace:CostManagerForms.UI.Pages"
+                     android:TabbedPage.ToolbarPlacement="Bottom"
+                     BarBackgroundColor="{StaticResource PrimaryDarkColor}"
+                     BarTextColor="{StaticResource SecondaryTextColor}"
+                     NavigationPage.HasNavigationBar="False">
+
+    <pages:CustomMainStatisticPage BindingContext="{Binding ViewModels[0]}"/>
+    <!--<ContentPage Title="Tab 2" NavigationPage.HasNavigationBar="False"/>
+    <ContentPage Title="Tab 3" Icon="IcoWalletCard.png" NavigationPage.HasNavigationBar="False"/>-->
+</views:MvxTabbedPage>

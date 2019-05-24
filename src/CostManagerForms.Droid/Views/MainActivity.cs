@@ -22,8 +22,9 @@ namespace CostManagerForms.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            CrossCurrentActivity.Current.Init(this, bundle);
             base.OnCreate(bundle);
+            global::Xamarin.Forms.Forms.Init(this, bundle);
+            CrossCurrentActivity.Current.Init(this, bundle);
         }
     }
 }

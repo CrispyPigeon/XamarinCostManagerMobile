@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CostManagerForms.Core.ViewModels.Statistics;
 using DAL.Services.CostManager;
 using MvvmCross.Commands;
 
-namespace CostManagerForms.Core.ViewModels.MainCommon
+namespace CostManagerForms.Core.ViewModels.CustomMain
 {
     public class CustomMainViewModel : BaseViewModel
     {
@@ -27,9 +28,12 @@ namespace CostManagerForms.Core.ViewModels.MainCommon
         public IMvxCommand GoToCostsPartCommand { get; }
         public IMvxCommand OpenMenuCommand { get; }
 
-        public CustomMainViewModel()
+        public CustomMainViewModel(ICostManagerService costManagerService)
         {
-            //Init ViewModels
+            _viewModels = new List<BaseViewModel>
+            {
+                new CustomMainStatisticViewModel(costManagerService)
+            };
 
             GoToWalletsPartCommand = new MvxCommand(() => ChangeView(1));
             GoToStatisticPartCommand = new MvxCommand(() => ChangeView(2));

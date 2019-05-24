@@ -11,13 +11,20 @@ using SkiaSharp;
 
 namespace CostManagerForms.Core.ViewModels.Statistics
 {
-    public class OnMainStatisticViewModel : BaseCarouselItemViewModel
+    public class CustomMainStatisticViewModel : BaseCarouselItemViewModel
     {
         private DonutChart _statisticChart;
         public DonutChart StatisticChart
         {
             get => _statisticChart;
             set => SetProperty(ref _statisticChart, value);
+        }
+
+        private string _test = "HI123";
+        public string Test
+        {
+            get => _test;
+            set => SetProperty(ref _test, value);
         }
 
         private List<CostByWallet> _statisticList;
@@ -29,7 +36,7 @@ namespace CostManagerForms.Core.ViewModels.Statistics
 
         private readonly ICostManagerService _costManagerService;
 
-        public OnMainStatisticViewModel(ICostManagerService costManagerService)
+        public CustomMainStatisticViewModel(ICostManagerService costManagerService)
         {
             _costManagerService = costManagerService;
             _statisticChart = new DonutChart();
@@ -44,6 +51,11 @@ namespace CostManagerForms.Core.ViewModels.Statistics
             {
                 ValueLabel = x.Sum.ToString()
             }).ToArray(); 
+        }
+
+        public override void ViewAppeared()
+        {
+            base.ViewAppeared();
         }
     }
 }

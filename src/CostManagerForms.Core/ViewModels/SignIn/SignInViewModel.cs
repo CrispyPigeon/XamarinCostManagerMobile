@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using CostManagerForms.Core.Localization;
+using CostManagerForms.Core.Services.Settings;
+using CostManagerForms.Core.ViewModels.CustomMain;
 using DAL.Services.CostManager;
 using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using Xamarin.Forms;
 
 namespace CostManagerForms.Core.ViewModels.SignIn
@@ -34,15 +37,19 @@ namespace CostManagerForms.Core.ViewModels.SignIn
             set => SetProperty(ref _save, value);
         }
 
+        private readonly IMvxNavigationService _navigation;
+
         public IMvxCommand SignInCommand { get; }
         public IMvxCommand RegistrateCommand { get; }
 
         private readonly IUserDialogs _dialogs;
         private readonly ICostManagerService _costManagerService;
 
-        public SignInViewModel(ICostManagerService costManagerService,
+        public SignInViewModel(IMvxNavigationService navigation,
+                               ICostManagerService costManagerService,
                                IUserDialogs dialogs)
         {
+            _navigation = navigation;
             _costManagerService = costManagerService;
             _dialogs = dialogs;
 
@@ -65,7 +72,7 @@ namespace CostManagerForms.Core.ViewModels.SignIn
 
             await SignInAsync();
         }
-        
+
         private async Task SignInAsync()
         {
             if (!ValidateLoginData())
@@ -79,9 +86,9 @@ namespace CostManagerForms.Core.ViewModels.SignIn
                 return;
             }
 
-            Application.Current.Properties["token"] = login.Token;            
+            AppSettings.Instance.SignIn(login.Token);
 
-            _dialogs.Alert(login.Token);
+            await _navigation.Navigate<CustomMainViewModel>();
         }
 
         private bool ValidateLoginData()
