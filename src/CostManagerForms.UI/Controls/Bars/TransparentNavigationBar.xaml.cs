@@ -27,7 +27,6 @@ namespace CostManagerForms.UI.Controls.Bars
 	    public TransparentNavigationBar()
 	    {
 	        InitializeComponent();
-	        Margin = (Thickness)Application.Current.Resources["TopMicroMargin"];
 	    }
 
 	    private void SetTitleText(string value)

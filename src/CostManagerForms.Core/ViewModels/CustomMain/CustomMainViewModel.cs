@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CostManagerForms.Core.ViewModels.Costs;
 using CostManagerForms.Core.ViewModels.Statistics;
+using CostManagerForms.Core.ViewModels.Wallets;
 using DAL.Services.CostManager;
 using MvvmCross.Commands;
 
@@ -9,7 +11,7 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
 {
     public class CustomMainViewModel : BaseViewModel
     {
-        private int _viewModelPosition;
+        private int _viewModelPosition = 1;
         public int ViewModelPosition
         {
             get => _viewModelPosition;
@@ -32,12 +34,14 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
         {
             _viewModels = new List<BaseViewModel>
             {
-                new CustomMainStatisticViewModel(costManagerService)
+                new CustomMainWalletsViewModel(),
+                new CustomMainStatisticViewModel(costManagerService),
+                new CustomMainCostsViewModel()
             };
 
-            GoToWalletsPartCommand = new MvxCommand(() => ChangeView(1));
-            GoToStatisticPartCommand = new MvxCommand(() => ChangeView(2));
-            GoToCostsPartCommand = new MvxCommand(() => ChangeView(3));
+            GoToWalletsPartCommand = new MvxCommand(() => ChangeView(0));
+            GoToStatisticPartCommand = new MvxCommand(() => ChangeView(1));
+            GoToCostsPartCommand = new MvxCommand(() => ChangeView(2));
         }
 
         private void ChangeView(int v)

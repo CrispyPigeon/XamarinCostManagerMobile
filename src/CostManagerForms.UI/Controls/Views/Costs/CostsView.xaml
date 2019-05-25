@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:MvxContentView x:TypeArguments="viewModels:CustomMainCostsViewModel"
+                      xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.Costs;assembly=CostManagerForms.Core"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns="http://xamarin.com/schemas/2014/forms" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="CostManagerForms.UI.Controls.Views.Costs.CostsView">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="Hello Xamarin.Forms!" />
+      </StackLayout>
+  </ContentView.Content>
+</views:MvxContentView>

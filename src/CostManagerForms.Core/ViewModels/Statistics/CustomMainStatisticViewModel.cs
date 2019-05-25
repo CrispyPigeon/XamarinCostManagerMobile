@@ -11,8 +11,10 @@ using SkiaSharp;
 
 namespace CostManagerForms.Core.ViewModels.Statistics
 {
-    public class CustomMainStatisticViewModel : BaseCarouselItemViewModel
+    public class CustomMainStatisticViewModel : BaseCarouselItemViewModel, ITemplateDataViewModel
     {
+        public byte ViewModelPosition => 1;
+
         private DonutChart _statisticChart;
         public DonutChart StatisticChart
         {
@@ -33,6 +35,7 @@ namespace CostManagerForms.Core.ViewModels.Statistics
             get => _statisticList;
             set => SetProperty(ref _statisticList, value);
         }
+
 
         private readonly ICostManagerService _costManagerService;
 

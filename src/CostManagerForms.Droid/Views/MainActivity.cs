@@ -12,6 +12,7 @@ using Android.Widget;
 using MvvmCross.Forms.Platforms.Android.Views;
 using CostManagerForms.Core.ViewModels.Main;
 using Plugin.CurrentActivity;
+using CarouselView.FormsPlugin.Android;
 
 namespace CostManagerForms.Droid
 {
@@ -23,8 +24,9 @@ namespace CostManagerForms.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(bundle);
-            global::Xamarin.Forms.Forms.Init(this, bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
+            CarouselViewRenderer.Init();
+            global::Xamarin.Forms.Forms.Init(this, bundle);
         }
     }
 }

@@ -6,9 +6,9 @@
     <ContentView.Content>
         <Grid HorizontalOptions="FillAndExpand"
               RowSpacing="0"
-              Margin="0,30,0,0"
-              BackgroundColor="Transparent"
-              HeightRequest="40">
+              Margin="0"
+              BackgroundColor="{StaticResource PrimaryColor}"
+              HeightRequest="50">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -29,7 +29,6 @@
             <!-- Title , Margin to resolve bad image -->
             <Label x:Name="TitleLabel"
                    Grid.ColumnSpan="2"
-                   Margin="0,2,0,0"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    FontSize="Large"/>
