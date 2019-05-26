@@ -7,9 +7,9 @@ namespace CostManagerForms.Core.ViewModels._Base
 {
     public abstract class BaseCarouselItemViewModel : BaseViewModel
     {
-        public async void ViewLoaded()
+        public void ViewLoaded()
         {
-            await Task.Run(LoadData);
+            LoadData();
         }
 
         public abstract Task LoadData();

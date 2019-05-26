@@ -9,6 +9,10 @@
         <local:Dimens />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style TargetType="Frame">
+        <Setter Property="HasShadow" Value="false"/>
+    </Style>
+    
     <Style x:Key="SelectedMenuStackLayout" TargetType="StackLayout">
         <Setter Property="BackgroundColor" Value="{StaticResource PrimaryLightColor}"/>
     </Style>

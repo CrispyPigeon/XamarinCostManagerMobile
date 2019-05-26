@@ -9,6 +9,6 @@ namespace DAL.Services.CostManager
     {
         Task<Login> SignInAsync(string userName, string password);
         Task<Message> RegisterAsync(string userName, string password);
-        Task<List<CostByWallet>> GetCommonStatistic();
+        Task<Message<List<CostByWallet>>> GetCommonStatistic(string token);
     }
 }

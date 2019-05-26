@@ -123,6 +123,9 @@
   <data name="Costs" xml:space="preserve">
     <value>Costs</value>
   </data>
+  <data name="CostsSum" xml:space="preserve">
+    <value>Costs: </value>
+  </data>
   <data name="EmptyFieldsMessage" xml:space="preserve">
     <value>Please fill in all fields!</value>
   </data>
@@ -135,11 +138,17 @@
   <data name="ExistsUsernameTitle" xml:space="preserve">
     <value>Registration failed</value>
   </data>
+  <data name="IncomeSum" xml:space="preserve">
+    <value>Income: </value>
+  </data>
   <data name="IncorrectDataMessage" xml:space="preserve">
     <value>Check fields!</value>
   </data>
   <data name="IncorrectDataTitle" xml:space="preserve">
     <value>Incorrect data</value>
+  </data>
+  <data name="LastSum" xml:space="preserve">
+    <value>Last: </value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -149,6 +158,10 @@
   </data>
   <data name="NoConnectionTitle" xml:space="preserve">
     <value>No Connection</value>
+  </data>
+  <data name="NoCostsMessage" xml:space="preserve">
+    <value>To see diagram,
+please add some costs!</value>
   </data>
   <data name="OpenAppSettings" xml:space="preserve">
     <value>Open App Settings</value>

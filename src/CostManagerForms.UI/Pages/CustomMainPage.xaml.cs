@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 namespace CostManagerForms.UI.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [MvxContentPagePresentation(WrapInNavigationPage = true, NoHistory = true)]
     public partial class CustomMainPage : BaseMvxContentPage<CustomMainViewModel>
     {
         public CustomMainPage ()

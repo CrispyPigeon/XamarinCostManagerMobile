@@ -31,7 +31,8 @@
                    Grid.ColumnSpan="2"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   FontSize="Large"/>
+                   FontSize="Large"
+                   TextColor="{StaticResource SecondaryTextColor}"/>
             
         </Grid>
     </ContentView.Content>

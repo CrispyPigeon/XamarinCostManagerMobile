@@ -65,11 +65,11 @@ namespace DAL.Services.CostManager
                                                                ?? throw new Exception();
         }
 
-        public async Task<List<CostByWallet>> GetCommonStatistic()
+        public async Task<Message<List<CostByWallet>>> GetCommonStatistic(string token)
         {
             var request = Consts.CommonStatisticsEndPoint;
-            _requestProvider.Token = (string)Application.Current.Properties["token"];
-            return await _requestProvider.MakeApiCall<List<CostByWallet>>(request,
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message<List<CostByWallet>>>(request,
                        Consts.ContentTypeUrlencoded,
                        Method.GET)
                    ?? throw new Exception();

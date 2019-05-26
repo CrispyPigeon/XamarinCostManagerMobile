@@ -4,10 +4,116 @@
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns="http://xamarin.com/schemas/2014/forms" 
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
+                      xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
                       x:Class="CostManagerForms.UI.Controls.Views.Statistics.StatisticView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+
+    <Grid Margin="{StaticResource MediumMargin}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Picker Grid.Column="0"
+                    ItemsSource="{Binding StatisticList}"
+                    ItemDisplayBinding="{Binding Wallet.Name}"
+                    SelectedItem="{Binding SelectedStatistic}"/>
+
+            <Picker Grid.Column="1"
+                    ItemsSource="{Binding StatisticList}"
+                    ItemDisplayBinding="{Binding Wallet.Currency}"
+                    SelectedItem="{Binding SelectedStatistic}"
+                    IsEnabled="False"/>
+
+        </Grid>
+
+        <Label Grid.Row="1"
+               Text="{extensions:Translate NoCostsMessage}"
+               FontSize="Large"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               IsVisible="{Binding IsChartVisible, Converter={StaticResource BoolOppositeResultConverter}}"/>
+
+        <microcharts:ChartView Grid.Row="1"
+                               Chart="{Binding StatisticChart}"
+                               IsVisible="{Binding IsChartVisible}"/>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Column="0"
+                       Padding="8"
+                       BorderColor="{StaticResource PrimaryDarkColor}"
+                       HorizontalOptions="FillAndExpand">
+                    <Label HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{extensions:Translate CostsSum}"
+                                      FontSize="Medium"/>
+                                <Span Text="{Binding SelectedStatistic.Wallet.LastSum}"
+                                      FontSize="Medium"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+
+                <Frame Grid.Column="1"
+                       Padding="4"
+                       BorderColor="{StaticResource PrimaryDarkColor}"
+                       HorizontalOptions="FillAndExpand">
+                    <Label HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{extensions:Translate IncomeSum}"
+                                      FontSize="Medium"/>
+                                <Span Text="{Binding SelectedStatistic.Wallet.Sum}"
+                                      FontSize="Medium"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+
+            </Grid>
+
+            <Frame Grid.Row="1"
+                   Padding="32,4"
+                   BorderColor="{StaticResource PrimaryDarkColor}"
+                   HorizontalOptions="Center">
+                <Label HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{extensions:Translate LastSum}"
+                                  FontSize="Medium"/>
+                            <Span Text="{Binding SelectedStatistic.Wallet, Converter={StaticResource LastSumConverter}}"
+                                  FontSize="Medium"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+
+        </Grid>
+
+    </Grid>
+
 </views:MvxContentView>

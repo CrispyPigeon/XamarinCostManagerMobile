@@ -79,6 +79,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Costs: .
+        /// </summary>
+        internal static string CostsSum {
+            get {
+                return ResourceManager.GetString("CostsSum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill in all fields!.
         /// </summary>
         internal static string EmptyFieldsMessage {
@@ -115,6 +124,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Income: .
+        /// </summary>
+        internal static string IncomeSum {
+            get {
+                return ResourceManager.GetString("IncomeSum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check fields!.
         /// </summary>
         internal static string IncorrectDataMessage {
@@ -129,6 +147,15 @@ namespace CostManagerForms.Core.Localization {
         internal static string IncorrectDataTitle {
             get {
                 return ResourceManager.GetString("IncorrectDataTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last: .
+        /// </summary>
+        internal static string LastSum {
+            get {
+                return ResourceManager.GetString("LastSum", resourceCulture);
             }
         }
         
@@ -156,6 +183,16 @@ namespace CostManagerForms.Core.Localization {
         internal static string NoConnectionTitle {
             get {
                 return ResourceManager.GetString("NoConnectionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To see diagram,
+        ///please add some costs!.
+        /// </summary>
+        internal static string NoCostsMessage {
+            get {
+                return ResourceManager.GetString("NoCostsMessage", resourceCulture);
             }
         }
         
