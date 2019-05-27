@@ -39,7 +39,7 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
                                    ICostManagerService costManagerService)
         {
             _viewModels = new List<BaseViewModel>();
-            var viewModel1 = new CustomMainWalletsViewModel();
+            var viewModel1 = new CustomMainWalletsViewModel(navigation, costManagerService);
             ViewDidLoaded += viewModel1.ViewLoaded;
             var viewModel2 = new CustomMainStatisticViewModel(costManagerService);
             ViewDidLoaded += viewModel2.ViewLoaded;

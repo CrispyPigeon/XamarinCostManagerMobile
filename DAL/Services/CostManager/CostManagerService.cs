@@ -6,6 +6,8 @@ using DAL.Helpers;
 using DAL.Services.RequestProvider;
 using Model.RequestItems;
 using Model.RequestItems.Base;
+using Model.RequestItems.Currency;
+using Model.RequestItems.StorageType;
 using Model.RequestItems.Wallet;
 using RestSharp;
 using Xamarin.Forms;
@@ -81,6 +83,26 @@ namespace DAL.Services.CostManager
             var request = Consts.WalletsEndPoint;
             _requestProvider.Token = token;
             return await _requestProvider.MakeApiCall<Message<List<Wallet>>>(request,
+                       Consts.ContentTypeUrlencoded,
+                       Method.GET)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message<List<Currency>>> GetCurrencies(string token)
+        {
+            var request = Consts.CurrencyEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message<List<Currency>>>(request,
+                       Consts.ContentTypeUrlencoded,
+                       Method.GET)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message<List<StorageType>>> GetStorageTypes(string token)
+        {
+            var request = Consts.StorageTypesEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message<List<StorageType>>>(request,
                        Consts.ContentTypeUrlencoded,
                        Method.GET)
                    ?? throw new Exception();

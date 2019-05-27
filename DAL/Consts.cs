@@ -27,6 +27,8 @@ namespace DAL
         public const string LoginEndPoint = "account/login";
         public const string RegistrationEndPoint = "account/register";
         public const string CommonStatisticsEndPoint = "commonstatistic";
-        public const string WalletsEndPoint = "wallets"; 
+        public const string WalletsEndPoint = "wallets";
+        public const string CurrencyEndPoint = "currency";
+        public const string StorageTypesEndPoint = "storagetype";
     }
 }

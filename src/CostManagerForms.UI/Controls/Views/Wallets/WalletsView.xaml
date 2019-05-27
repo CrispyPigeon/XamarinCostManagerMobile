@@ -6,14 +6,14 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       x:Class="CostManagerForms.UI.Controls.Views.Wallets.WalletsView">
 
-    <ContentView.Resources>
+    <!--<ContentView.Resources>
         <DataTemplate x:Key="WalletCell">
             <cells:DayOverviewCell/>
         </DataTemplate>
-    </ContentView.Resources>
+    </ContentView.Resources>-->
     <Grid Margin="{StaticResource MediumMargin}">
 
-        <!--<Grid.RowDefinitions>
+    <!--<Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>

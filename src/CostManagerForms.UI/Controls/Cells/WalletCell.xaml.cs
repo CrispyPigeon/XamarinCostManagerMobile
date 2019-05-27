@@ -14,7 +14,7 @@ namespace CostManagerForms.UI.Controls.Cells
 	{
 		public WalletCell ()
 		{
-			InitializeComponent (); //TODO GET STORAGETYPE AND CURRENCY
+			InitializeComponent ();
 		}
 	}
 }
