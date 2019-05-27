@@ -159,9 +159,9 @@
   <data name="NoConnectionTitle" xml:space="preserve">
     <value>No Connection</value>
   </data>
-  <data name="NoCostsMessage" xml:space="preserve">
+  <data name="NoWalletsOrCostMessage" xml:space="preserve">
     <value>To see diagram,
-please add some costs!</value>
+please add some wallets or costs!</value>
   </data>
   <data name="OpenAppSettings" xml:space="preserve">
     <value>Open App Settings</value>

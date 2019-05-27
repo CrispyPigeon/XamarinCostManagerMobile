@@ -17,7 +17,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <converters:LastSumConverter x:Key="LastSumConverter"/>
-            <converters:BoolOppositeResultConverter x:Key="BoolOppositeResultConverter"/>            
+            <converters:BoolOppositeResultConverter x:Key="BoolOppositeResultConverter"/>
+            <converters:StringFirstLetterConverter x:Key="StringFirstLetterConverter"/>
 
         </ResourceDictionary>
     </Application.Resources>

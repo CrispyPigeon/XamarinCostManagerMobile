@@ -5,9 +5,44 @@
                       xmlns="http://xamarin.com/schemas/2014/forms" 
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       x:Class="CostManagerForms.UI.Controls.Views.Wallets.WalletsView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+
+    <ContentView.Resources>
+        <DataTemplate x:Key="WalletCell">
+            <cells:DayOverviewCell/>
+        </DataTemplate>
+    </ContentView.Resources>
+    <Grid Margin="{StaticResource MediumMargin}">
+
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Picker Grid.Column="0"
+                    ItemsSource="{Binding StatisticList}"
+                    ItemDisplayBinding="{Binding Wallet.Name}"
+                    SelectedItem="{Binding SelectedStatistic}"/>
+
+            <Picker Grid.Column="1"
+                    ItemsSource="{Binding StatisticList}"
+                    ItemDisplayBinding="{Binding Wallet.Currency}"
+                    SelectedItem="{Binding SelectedStatistic}"
+                    IsEnabled="False"/>
+
+        </Grid>-->
+
+        <ListView ItemsSource="{Binding WalletsList}"
+                  ItemTemplate="{StaticResource WalletCell}">
+
+        </ListView>
+
+    </Grid>
+
 </views:MvxContentView>

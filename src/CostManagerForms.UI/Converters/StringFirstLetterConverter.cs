@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+using Xamarin.Forms;
+
+namespace CostManagerForms.UI.Converters
+{
+    public class StringFirstLetterConverter : IValueConverter
+    {
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var str = ((string)value).ToUpper();
+            return str[0];
+
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

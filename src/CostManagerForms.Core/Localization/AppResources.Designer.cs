@@ -188,11 +188,11 @@ namespace CostManagerForms.Core.Localization {
         
         /// <summary>
         ///   Looks up a localized string similar to To see diagram,
-        ///please add some costs!.
+        ///please add some wallets or costs!.
         /// </summary>
-        internal static string NoCostsMessage {
+        internal static string NoWalletsOrCostMessage {
             get {
-                return ResourceManager.GetString("NoCostsMessage", resourceCulture);
+                return ResourceManager.GetString("NoWalletsOrCostMessage", resourceCulture);
             }
         }
         

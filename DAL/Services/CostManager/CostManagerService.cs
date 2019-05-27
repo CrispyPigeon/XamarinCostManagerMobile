@@ -6,6 +6,7 @@ using DAL.Helpers;
 using DAL.Services.RequestProvider;
 using Model.RequestItems;
 using Model.RequestItems.Base;
+using Model.RequestItems.Wallet;
 using RestSharp;
 using Xamarin.Forms;
 
@@ -70,6 +71,16 @@ namespace DAL.Services.CostManager
             var request = Consts.CommonStatisticsEndPoint;
             _requestProvider.Token = token;
             return await _requestProvider.MakeApiCall<Message<List<CostByWallet>>>(request,
+                       Consts.ContentTypeUrlencoded,
+                       Method.GET)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message<List<Wallet>>> GetWallets(string token)
+        {
+            var request = Consts.WalletsEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message<List<Wallet>>>(request,
                        Consts.ContentTypeUrlencoded,
                        Method.GET)
                    ?? throw new Exception();
