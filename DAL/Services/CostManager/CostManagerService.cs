@@ -7,6 +7,7 @@ using DAL.Services.RequestProvider;
 using Model.RequestItems;
 using Model.RequestItems.Base;
 using Model.RequestItems.Currency;
+using Model.RequestItems.IncomeNotes;
 using Model.RequestItems.StorageType;
 using Model.RequestItems.Wallet;
 using RestSharp;
@@ -103,6 +104,16 @@ namespace DAL.Services.CostManager
             var request = Consts.StorageTypesEndPoint;
             _requestProvider.Token = token;
             return await _requestProvider.MakeApiCall<Message<List<StorageType>>>(request,
+                       Consts.ContentTypeUrlencoded,
+                       Method.GET)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message<List<IncomeNote>>> GetIncomeNotes(string token)
+        {
+            var request = Consts.IncomeNotesEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message<List<IncomeNote>>>(request,
                        Consts.ContentTypeUrlencoded,
                        Method.GET)
                    ?? throw new Exception();

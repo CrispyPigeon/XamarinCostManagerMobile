@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CostManagerForms.UI.Controls.Cells.WalletCell">
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="CostManagerForms.UI.Controls.Cells.WalletCell">
 
-    <Frame Padding="8">
+    <Frame BorderColor="{StaticResource PrimaryDarkColor}"
+           CornerRadius="16"
+           Margin="{StaticResource VerticalSmallMargin}">
 
         <Grid>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="4*"/>
@@ -14,44 +17,61 @@
 
             <Frame Grid.Column="0"
                    BorderColor="{StaticResource PrimaryDarkColor}"
+                   BackgroundColor="{StaticResource PrimaryColor}"
                    Padding="16"
-                   CornerRadius="32">
+                   CornerRadius="64">
 
                 <Label HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        FontSize="Large"
                        FontAttributes="Bold"
-                       Text="{Binding Name, Converter={StaticResource StringFirstLetterConverter}}"/>
+                       Text="{Binding Wallet.Name, Converter={StaticResource StringFirstLetterConverter}}"/>
 
             </Frame>
 
-            <StackLayout Grid.Column="1">
+            <Grid Grid.Column="1">
 
-                <StackLayout Orientation="Horizontal">
-                    
-                    <Label Text="{Binding Name}"
-                           VerticalTextAlignment="Center"/>
-                    
-                    <Label Text="{Binding Sum}"
-                           VerticalTextAlignment="Center"
-                           HorizontalTextAlignment="End"/>
-                    
-                </StackLayout>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                <StackLayout Orientation="Horizontal">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-                    <Label Text="{Binding StorageType}"
-                           VerticalTextAlignment="Center"/>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       Text="{Binding Wallet.Name}"/>
 
-                    <Label Text="{Binding Currency}"
-                           VerticalTextAlignment="Center"
-                           HorizontalTextAlignment="End"/>
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       Text="{Binding Wallet.Sum}"/>
 
-                </StackLayout>
-                
-            </StackLayout>
-            
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding StorageType.Name}"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       Text="{Binding Currency.Name}"/>
+
+            </Grid>
+
         </Grid>
+        
     </Frame>
 
 </ViewCell>

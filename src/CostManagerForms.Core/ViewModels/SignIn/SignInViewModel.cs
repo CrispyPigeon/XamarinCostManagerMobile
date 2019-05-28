@@ -35,14 +35,13 @@ namespace CostManagerForms.Core.ViewModels.SignIn
         {
             get => _save;
             set => SetProperty(ref _save, value);
-        }
-
-        private readonly IMvxNavigationService _navigation;
+        }       
 
         public IMvxCommand SignInCommand { get; }
         public IMvxCommand RegistrateCommand { get; }
 
         private readonly IUserDialogs _dialogs;
+        private readonly IMvxNavigationService _navigation;
         private readonly ICostManagerService _costManagerService;
 
         public SignInViewModel(IMvxNavigationService navigation,
