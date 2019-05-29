@@ -6,6 +6,7 @@ using DAL.Helpers;
 using DAL.Services.RequestProvider;
 using Model.RequestItems;
 using Model.RequestItems.Base;
+using Model.RequestItems.Costs;
 using Model.RequestItems.Currency;
 using Model.RequestItems.IncomeNotes;
 using Model.RequestItems.StorageType;
@@ -116,6 +117,39 @@ namespace DAL.Services.CostManager
             return await _requestProvider.MakeApiCall<Message<List<IncomeNote>>>(request,
                        Consts.ContentTypeUrlencoded,
                        Method.GET)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message> PostWalletAsync(string token, Wallet wallet)
+        {
+            var request = Consts.WalletsEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message>(request,
+                                                               Consts.ContentTypeJson,                       
+                                                               Method.POST,
+                                                               data: wallet)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message> PostIncomeNoteAsync(string token, IncomeNote incomeNote)
+        {
+            var request = Consts.IncomeNotesEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message>(request,
+                                                               Consts.ContentTypeJson,
+                                                               Method.POST,
+                                                               data: incomeNote)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message> PostCostAsync(string token, Cost cost)
+        {
+            var request = Consts.CostsEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message>(request,
+                                                               Consts.ContentTypeJson,
+                                                               Method.POST,
+                                                               data: cost)
                    ?? throw new Exception();
         }
     }

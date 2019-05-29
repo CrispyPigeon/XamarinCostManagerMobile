@@ -97,6 +97,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data successfully sent!.
+        /// </summary>
+        internal static string DataSentMessage {
+            get {
+                return ResourceManager.GetString("DataSentMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill in all fields!.
         /// </summary>
         internal static string EmptyFieldsMessage {
@@ -111,6 +120,15 @@ namespace CostManagerForms.Core.Localization {
         internal static string EmptyFieldsTitle {
             get {
                 return ResourceManager.GetString("EmptyFieldsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string ErrorTitle {
+            get {
+                return ResourceManager.GetString("ErrorTitle", resourceCulture);
             }
         }
         
@@ -265,6 +283,15 @@ namespace CostManagerForms.Core.Localization {
         internal static string Statistic {
             get {
                 return ResourceManager.GetString("Statistic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string SuccessTitle {
+            get {
+                return ResourceManager.GetString("SuccessTitle", resourceCulture);
             }
         }
         

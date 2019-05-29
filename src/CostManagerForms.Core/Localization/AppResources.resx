@@ -129,11 +129,17 @@
   <data name="CostsSum" xml:space="preserve">
     <value>Costs: </value>
   </data>
+  <data name="DataSentMessage" xml:space="preserve">
+    <value>Data successfully sent!</value>
+  </data>
   <data name="EmptyFieldsMessage" xml:space="preserve">
     <value>Please fill in all fields!</value>
   </data>
   <data name="EmptyFieldsTitle" xml:space="preserve">
     <value>Empty fields</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="ExistsUsernameMessage" xml:space="preserve">
     <value>Please change username!</value>
@@ -186,6 +192,9 @@ please add some wallets or costs!</value>
   </data>
   <data name="Statistic" xml:space="preserve">
     <value>Statistic</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>Success</value>
   </data>
   <data name="Wallets" xml:space="preserve">
     <value>Wallets</value>

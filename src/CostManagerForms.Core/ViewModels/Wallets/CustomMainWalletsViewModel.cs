@@ -39,20 +39,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
                 SetProperty(ref _selectedStorageType, value);
                 UpdateShowingData();
             }
-        }
-
-        private void UpdateShowingData()
-        {
-            if (SelectedStorageType.ID == 0)
-            {
-                WalletsList = _allWalletsList;
-            }
-            else
-            {
-                WalletsList = _allWalletsList.Where(x => x.StorageType.ID == SelectedStorageType.ID)
-                    .ToList();
-            }
-        }
+        }        
 
         private List<StorageType> _storageTypeList;
         public List<StorageType> StorageTypeList
@@ -77,6 +64,18 @@ namespace CostManagerForms.Core.ViewModels.Wallets
 
             CreateNewWalletCommand = new MvxAsyncCommand<Wallet>((wallet) => GoToWalletDetailsPage(new Wallet()));
             GoToIncomeNotesPageCommand = new MvxAsyncCommand<JoinedWallet>((wallet) => GoToIncomeNotesPage(wallet));
+        }
+        private void UpdateShowingData()
+        {
+            if (SelectedStorageType.ID == 0)
+            {
+                WalletsList = _allWalletsList;
+            }
+            else
+            {
+                WalletsList = _allWalletsList.Where(x => x.StorageType.ID == SelectedStorageType.ID)
+                    .ToList();
+            }
         }
 
         private async Task GoToIncomeNotesPage(JoinedWallet wallet)
