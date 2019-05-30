@@ -29,18 +29,18 @@
                     SelectedItem="{Binding SelectedStatistic}"/>
 
             <Picker Grid.Column="1"
+                    IsEnabled="False"
                     ItemsSource="{Binding StatisticList}"
-                    ItemDisplayBinding="{Binding Wallet.Currency}"
                     SelectedItem="{Binding SelectedStatistic}"
-                    IsEnabled="False"/>
+                    ItemDisplayBinding="{Binding Wallet.Currency}"/>
 
         </Grid>
 
         <Label Grid.Row="1"
-               Text="{extensions:Translate NoWalletsOrCostMessage}"
                FontSize="Large"
                VerticalTextAlignment="Center"
                HorizontalTextAlignment="Center"
+               Text="{extensions:Translate NoWalletsOrCostMessage}"
                IsVisible="{Binding IsChartVisible, Converter={StaticResource BoolOppositeResultConverter}}"/>
 
         <microcharts:ChartView Grid.Row="1"
@@ -61,19 +61,21 @@
 
                 <Frame Grid.Column="0"
                        Padding="8"
-                       BorderColor="{StaticResource PrimaryDarkColor}"
-                       HorizontalOptions="FillAndExpand">
-                    <Label HorizontalOptions="Center"
-                           VerticalOptions="Center">
+                       HorizontalOptions="FillAndExpand"
+                       BorderColor="{StaticResource PrimaryDarkColor}">
+                    
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{extensions:Translate CostsSum}"
-                                      FontSize="Medium"/>
-                                <Span Text="{Binding SelectedStatistic.Wallet.LastSum}"
-                                      FontSize="Medium"/>
+                                <Span FontSize="Medium"
+                                      Text="{extensions:Translate CostsSum}"/>
+                                <Span FontSize="Medium"
+                                      Text="{Binding SelectedStatistic.Wallet.LastSum}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
+                    
                 </Frame>
 
                 <Frame Grid.Column="1"

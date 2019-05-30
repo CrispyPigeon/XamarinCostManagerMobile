@@ -68,8 +68,6 @@ namespace CostManagerForms.Core.ViewModels.Statistics
             {
                 StatisticList = statisticListMessage.Data;
 
-                var statList = StatisticList.FirstOrDefault();
-
                 SelectedStatistic = StatisticList?.FirstOrDefault();
 
                 UpdateChart();

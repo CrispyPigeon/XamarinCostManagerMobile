@@ -13,31 +13,57 @@
             <cells:WalletCell/>
         </DataTemplate>
     </ContentView.Resources>
-    <Grid Margin="{StaticResource MediumMargin}">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <AbsoluteLayout>
 
-        <Picker Grid.Row="0"
-                ItemsSource="{Binding StorageTypeList}"
-                ItemDisplayBinding="{Binding Name}"
-                SelectedItem="{Binding SelectedStorageType}"/>
+        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+              AbsoluteLayout.LayoutFlags="All"
+              Margin="{StaticResource MediumMargin}">
 
-        <ListView Grid.Row="1"
-                  ItemsSource="{Binding WalletsList}"
-                  ItemTemplate="{StaticResource WalletCell}"
-                  HasUnevenRows="True"
-                  BackgroundColor="Transparent"
-                  SelectionMode="None">
-            <ListView.Behaviors>
-                <behaviors:EventToCommandBehavior EventName="ItemTapped"
-                                                  Command="{Binding GoToIncomeNotesPageCommand}"
-                                                  EventArgsConverter="{StaticResource ItemTappedConverter}"/>
-            </ListView.Behaviors>
-        </ListView>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <Picker Grid.Row="0"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding StorageTypeList}"
+                    SelectedItem="{Binding SelectedStorageType}"/>
 
+            <ListView Grid.Row="1"
+                      SelectionMode="None"
+                      HasUnevenRows="True"
+                      BackgroundColor="Transparent"
+                      ItemsSource="{Binding WalletsList}"
+                      ItemTemplate="{StaticResource WalletCell}">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                      Command="{Binding GoToIncomeNotesPageCommand}"
+                                                      EventArgsConverter="{StaticResource ItemTappedConverter}"/>
+                </ListView.Behaviors>
+            </ListView>
+
+        </Grid>
+
+        <Frame AbsoluteLayout.LayoutBounds="0.95,0.95,60,60"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               Padding="0"
+               CornerRadius="30"
+               BackgroundColor="{StaticResource PrimaryColor}">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CreateNewWalletCommand}"/>
+            </Frame.GestureRecognizers>
+
+            <Label Text="+"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource SecondaryTextColor}"/>
+
+        </Frame>
+        
+    </AbsoluteLayout>
+    
 </views:MvxContentView>

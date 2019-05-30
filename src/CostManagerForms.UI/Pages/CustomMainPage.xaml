@@ -12,8 +12,7 @@
                          xmlns:abstractions="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
                          xmlns:uimodels="clr-namespace:CostManagerForms.UI.UiModels"
                          xmlns:wallets="clr-namespace:CostManagerForms.UI.Controls.Views.Wallets"
-                         xmlns:costs="clr-namespace:CostManagerForms.UI.Controls.Views.Costs"
-                         NavigationPage.HasNavigationBar="False">
+                         xmlns:costs="clr-namespace:CostManagerForms.UI.Controls.Views.Costs">
 
     <ContentPage.Resources>
         <ResourceDictionary>

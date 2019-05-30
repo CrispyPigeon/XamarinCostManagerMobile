@@ -97,6 +97,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Currency: .
+        /// </summary>
+        internal static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data successfully sent!.
         /// </summary>
         internal static string DataSentMessage {
@@ -196,6 +205,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name: .
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check your internet connection..
         /// </summary>
         internal static string NoConnectionMessage {
@@ -287,6 +305,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to StorageType: .
+        /// </summary>
+        internal static string StorageType {
+            get {
+                return ResourceManager.GetString("StorageType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Success.
         /// </summary>
         internal static string SuccessTitle {
@@ -301,6 +328,15 @@ namespace CostManagerForms.Core.Localization {
         internal static string Wallets {
             get {
                 return ResourceManager.GetString("Wallets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wallet Details.
+        /// </summary>
+        internal static string WalletTitle {
+            get {
+                return ResourceManager.GetString("WalletTitle", resourceCulture);
             }
         }
     }

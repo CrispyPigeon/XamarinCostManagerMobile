@@ -16,6 +16,7 @@
                 <resources:Styles />
             </ResourceDictionary.MergedDictionaries>
 
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTappedConverter"/>
             <converters:LastSumConverter x:Key="LastSumConverter"/>
             <converters:BoolOppositeResultConverter x:Key="BoolOppositeResultConverter"/>
             <converters:StringFirstLetterConverter x:Key="StringFirstLetterConverter"/>

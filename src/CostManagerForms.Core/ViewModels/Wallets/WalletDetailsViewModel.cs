@@ -36,10 +36,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
         public Currency SelectedCurrency
         {
             get => _selectedCurrency;
-            set
-            {
-                SetProperty(ref _selectedCurrency, value);
-            }
+            set => SetProperty(ref _selectedCurrency, value);
         }
 
         private List<StorageType> _storageTypeList;
@@ -53,10 +50,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
         public StorageType SelectedStorageType
         {
             get => _selectedStorageType;
-            set
-            {
-                SetProperty(ref _selectedStorageType, value);
-            }
+            set => SetProperty(ref _selectedStorageType, value);
         }
 
         private bool _isStoragePickerEnable;
@@ -77,7 +71,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
         private readonly ICostManagerService _costManagerService;
         private readonly IUserDialogs _dialogs;
 
-        public IMvxCommand GoToIncomeNotesPageCommand { get; }
+        public IMvxCommand SaveChangesCommand { get; }
 
         public WalletDetailsViewModel(IMvxNavigationService navigation,
                                       ICostManagerService costManagerService,
@@ -87,7 +81,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
             _costManagerService = costManagerService;
             _dialogs = dialogs;
 
-            GoToIncomeNotesPageCommand = new MvxAsyncCommand(() => LoadingCommand(SaveChanges));
+            SaveChangesCommand = new MvxAsyncCommand(SaveChanges);
         }
 
         private async Task SaveChanges()
@@ -98,6 +92,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
             if (message.StatusCode != (int)HttpStatusCode.OK)
             {
                 _dialogs.Alert(message.ReturnMessage, AppResources.ErrorTitle);
+                ClearFields();
             }
             else
             {

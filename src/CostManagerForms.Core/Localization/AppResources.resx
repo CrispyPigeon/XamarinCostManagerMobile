@@ -129,6 +129,9 @@
   <data name="CostsSum" xml:space="preserve">
     <value>Costs: </value>
   </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency: </value>
+  </data>
   <data name="DataSentMessage" xml:space="preserve">
     <value>Data successfully sent!</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name: </value>
+  </data>
   <data name="NoConnectionMessage" xml:space="preserve">
     <value>Check your internet connection.</value>
   </data>
@@ -193,10 +199,16 @@ please add some wallets or costs!</value>
   <data name="Statistic" xml:space="preserve">
     <value>Statistic</value>
   </data>
+  <data name="StorageType" xml:space="preserve">
+    <value>StorageType: </value>
+  </data>
   <data name="SuccessTitle" xml:space="preserve">
     <value>Success</value>
   </data>
   <data name="Wallets" xml:space="preserve">
     <value>Wallets</value>
+  </data>
+  <data name="WalletTitle" xml:space="preserve">
+    <value>Wallet Details</value>
   </data>
 </root>

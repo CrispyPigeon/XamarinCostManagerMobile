@@ -39,7 +39,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
                 SetProperty(ref _selectedStorageType, value);
                 UpdateShowingData();
             }
-        }        
+        }
 
         private List<StorageType> _storageTypeList;
         public List<StorageType> StorageTypeList
@@ -59,8 +59,6 @@ namespace CostManagerForms.Core.ViewModels.Wallets
         {
             _navigation = navigation;
             _costManagerService = costManagerService;
-
-            _allWalletsList = new List<JoinedWallet>();
 
             CreateNewWalletCommand = new MvxAsyncCommand<Wallet>((wallet) => GoToWalletDetailsPage(new Wallet()));
             GoToIncomeNotesPageCommand = new MvxAsyncCommand<JoinedWallet>((wallet) => GoToIncomeNotesPage(wallet));
@@ -95,6 +93,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
 
         private async Task LoadingData()
         {
+            _allWalletsList = new List<JoinedWallet>();
             var walletsResponse = await _costManagerService.GetWallets(AppSettings.Instance.Token);
             var storageTypes = await _costManagerService.GetStorageTypes(AppSettings.Instance.Token);
             var currencies = await _costManagerService.GetCurrencies(AppSettings.Instance.Token);
@@ -106,9 +105,16 @@ namespace CostManagerForms.Core.ViewModels.Wallets
                                                      storageTypes.Data.FirstOrDefault(x => x.ID == item.StorageTypeID),
                                                      currencies.Data.FirstOrDefault(x => x.ID == item.CurrencyID)));
                 }
-                storageTypes.Data.Add(new StorageType { ID = 0, Name = AppResources.All });
-                StorageTypeList = storageTypes.Data;
-                SelectedStorageType = StorageTypeList.FirstOrDefault(x => x.ID == 0);
+                if (_selectedStorageType == null)
+                {
+                    storageTypes.Data.Add(new StorageType { ID = 0, Name = AppResources.All });
+                    StorageTypeList = storageTypes.Data;
+                    SelectedStorageType = StorageTypeList.FirstOrDefault(x => x.ID == 0);
+                }
+                else
+                {
+                    UpdateShowingData();
+                }
             }
         }
     }
