@@ -35,6 +35,13 @@ namespace CostManagerForms.Core.ViewModels.IncomeNotes
             _navigation = navigation;
             _costManagerService = costManagerService;
 
+            CreateIncomeNote = new MvxAsyncCommand<IncomeNote>((incomeNote) => GoToIncomeDetailsPage(new IncomeNote()));
+            EditIncomeNote = new MvxAsyncCommand<IncomeNote>((incomeNote) => GoToIncomeDetailsPage(incomeNote));
+        }
+
+        private async Task GoToIncomeDetailsPage(IncomeNote incomeNote)
+        {
+            await _navigation.Navigate<IncomeNoteDetailsViewModel, IncomeNote>(incomeNote);
         }
 
         public override void Prepare(Wallet parameter)
