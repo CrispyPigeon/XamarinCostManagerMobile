@@ -86,18 +86,33 @@ namespace CostManagerForms.Core.ViewModels.Wallets
 
         private async Task SaveChanges()
         {
+            if (!ValidateData())
+            {
+                _dialogs.Alert(AppResources.EmptyFieldsMessage, AppResources.ErrorTitle);
+                return;
+            }
             _currentWallet.CurrencyID = _selectedCurrency.ID;
             _currentWallet.StorageTypeID = _selectedStorageType.ID;
             var message = await _costManagerService.PostWalletAsync(AppSettings.Instance.Token, _currentWallet);
             if (message.StatusCode != (int)HttpStatusCode.OK)
             {
                 _dialogs.Alert(message.ReturnMessage, AppResources.ErrorTitle);
-                ClearFields();
             }
             else
             {
                 _dialogs.Alert(AppResources.DataSentMessage, AppResources.SuccessTitle);
+                await _navigation.Close(this);
             }
+        }
+
+        private bool ValidateData()
+        {
+            if (Validate(_currentWallet.Name) &&
+                Validate(_currentWallet.StorageTypeID) &&
+                Validate(_currentWallet.CurrencyID))
+                return true;
+            else
+                return false;
         }
 
         public override void Prepare(Wallet parameter)
@@ -105,8 +120,8 @@ namespace CostManagerForms.Core.ViewModels.Wallets
             _currentWallet = parameter;
             if (parameter.ID == 0)
             {
-                _isStoragePickerEnable = true;
-                _isCurrencyPickerEnable = true;
+                IsStoragePickerEnable = true;
+                IsCurrencyPickerEnable = true;
             }
         }
 
@@ -124,11 +139,6 @@ namespace CostManagerForms.Core.ViewModels.Wallets
             var storageTypeMessage = await _costManagerService.GetStorageTypes(AppSettings.Instance.Token);
             StorageTypeList = storageTypeMessage.Data;
             SelectedStorageType = StorageTypeList.FirstOrDefault();
-        }
-
-        private void ClearFields()
-        {
-            CurrentWallet = new Wallet();
         }
     }
 }

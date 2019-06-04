@@ -57,7 +57,8 @@
                     HorizontalOptions="FillAndExpand"
                     ItemDisplayBinding="{Binding Name}"
                     ItemsSource="{Binding StorageTypeList}"
-                    SelectedItem="{Binding SelectedStorageType}"/>
+                    SelectedItem="{Binding SelectedStorageType}"
+                    IsEnabled="{Binding IsStoragePickerEnable}"/>
 
             <Label Grid.Row="2"
                    Grid.Column="0"
@@ -73,14 +74,15 @@
                     HorizontalOptions="FillAndExpand"
                     ItemDisplayBinding="{Binding Name}"
                     ItemsSource="{Binding CurrencyList}"
-                    SelectedItem="{Binding SelectedCurrency}"/>
+                    SelectedItem="{Binding SelectedCurrency}"
+                    IsEnabled="{Binding IsCurrencyPickerEnable}"/>
 
             <Button Grid.Row="3"
                     Grid.ColumnSpan="2"
                     CornerRadius="8"
                     VerticalOptions="End"
                     Command="{Binding SaveChangesCommand}"
-                    Text="{extensions:Translate SignIn}"
+                    Text="{extensions:Translate Accept}"
                     TextColor="{StaticResource SecondaryTextColor}"
                     BackgroundColor="{StaticResource PrimaryLightColor}"/>
 

@@ -61,6 +61,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accept.
+        /// </summary>
+        internal static string Accept {
+            get {
+                return ResourceManager.GetString("Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         internal static string All {
@@ -115,6 +124,24 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date: .
+        /// </summary>
+        internal static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Wallet.
+        /// </summary>
+        internal static string EditWallet {
+            get {
+                return ResourceManager.GetString("EditWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill in all fields!.
         /// </summary>
         internal static string EmptyFieldsMessage {
@@ -156,6 +183,24 @@ namespace CostManagerForms.Core.Localization {
         internal static string ExistsUsernameTitle {
             get {
                 return ResourceManager.GetString("ExistsUsernameTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Income Details.
+        /// </summary>
+        internal static string IncomeNoteDetailsTitle {
+            get {
+                return ResourceManager.GetString("IncomeNoteDetailsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incomes.
+        /// </summary>
+        internal static string IncomesTitle {
+            get {
+                return ResourceManager.GetString("IncomesTitle", resourceCulture);
             }
         }
         
@@ -319,6 +364,15 @@ namespace CostManagerForms.Core.Localization {
         internal static string SuccessTitle {
             get {
                 return ResourceManager.GetString("SuccessTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum: .
+        /// </summary>
+        internal static string Sum {
+            get {
+                return ResourceManager.GetString("Sum", resourceCulture);
             }
         }
         

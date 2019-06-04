@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CostManagerForms.Core.Services.Settings;
 using Model.RequestItems.IncomeNotes;
 using System.Linq;
+using CostManagerForms.Core.ViewModels.Wallets;
 
 namespace CostManagerForms.Core.ViewModels.IncomeNotes
 {
@@ -28,6 +29,7 @@ namespace CostManagerForms.Core.ViewModels.IncomeNotes
 
         public IMvxCommand EditIncomeNote { get; }
         public IMvxCommand CreateIncomeNote { get; }
+        public IMvxCommand EditWalletCommand { get; }
 
         public IncomeNotesViewModel(IMvxNavigationService navigation,
                                     ICostManagerService costManagerService)
@@ -35,8 +37,17 @@ namespace CostManagerForms.Core.ViewModels.IncomeNotes
             _navigation = navigation;
             _costManagerService = costManagerService;
 
-            CreateIncomeNote = new MvxAsyncCommand<IncomeNote>((incomeNote) => GoToIncomeDetailsPage(new IncomeNote()));
+            CreateIncomeNote = new MvxAsyncCommand<IncomeNote>((incomeNote) => GoToIncomeDetailsPage(new IncomeNote
+            {
+                WalletID = currentWallet.ID
+            }));
             EditIncomeNote = new MvxAsyncCommand<IncomeNote>((incomeNote) => GoToIncomeDetailsPage(incomeNote));
+            EditWalletCommand = new MvxAsyncCommand<Wallet>((incomeNote) => GoToWalletDetailsPageAsync(currentWallet));
+        }
+
+        private async Task GoToWalletDetailsPageAsync(Wallet currentWallet)
+        {
+            await _navigation.Navigate<WalletDetailsViewModel, Wallet>(currentWallet);
         }
 
         private async Task GoToIncomeDetailsPage(IncomeNote incomeNote)

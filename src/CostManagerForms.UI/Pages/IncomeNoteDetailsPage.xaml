@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:IncomeNoteDetailsViewModel"
+                      xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.IncomeNotes;assembly=CostManagerForms.Core"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="CostManagerForms.UI.Pages.IncomeNoteDetailsPage"
+                      xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
+                      Title="{extensions:Translate IncomeNoteDetailsTitle}">
+
+    <Grid Margin="{StaticResource MediumMargin}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               FontSize="Medium"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Text="{extensions:Translate Name}"/>
+
+        <Entry Grid.Row="0"
+               Grid.Column="1"
+               FontSize="Medium"
+               VerticalOptions="Center"
+               HorizontalOptions="FillAndExpand"
+               Text="{Binding CurrentIncomeNote.Name}"/>
+
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               FontSize="Medium"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Text="{extensions:Translate Sum}"/>
+
+        <Entry Grid.Row="1"
+               Grid.Column="1"
+               FontSize="Medium"
+               VerticalOptions="Center"
+               HorizontalOptions="FillAndExpand"
+               Keyboard="Numeric"
+               Text="{Binding CurrentIncomeNote.Sum}"
+               IsEnabled="{Binding IsSumEntryEnable}"/>        
+
+        <Button Grid.Row="2"
+                Grid.ColumnSpan="2"
+                CornerRadius="8"
+                VerticalOptions="End"
+                Command="{Binding SaveChangesCommand}"
+                Text="{extensions:Translate Accept}"
+                TextColor="{StaticResource SecondaryTextColor}"
+                BackgroundColor="{StaticResource PrimaryLightColor}"/>
+
+    </Grid>
+
+</views:MvxContentPage>

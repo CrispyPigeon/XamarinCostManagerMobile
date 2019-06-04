@@ -107,5 +107,26 @@ namespace CostManagerForms.Core.ViewModels
                 return true;
             return false;
         }
+
+        public bool Validate(string item)
+        {
+            if (item == string.Empty)
+                return false;
+            return true;
+        }
+
+        public bool Validate(int item)
+        {
+            if (item == default(int))
+                return false;
+            return true;
+        }
+
+        public bool Validate(decimal item)
+        {
+            if (item == default(decimal))
+                return false;
+            return true;
+        }
     }
 }

@@ -211,4 +211,22 @@ please add some wallets or costs!</value>
   <data name="WalletTitle" xml:space="preserve">
     <value>Wallet Details</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date: </value>
+  </data>
+  <data name="EditWallet" xml:space="preserve">
+    <value>Edit Wallet</value>
+  </data>
+  <data name="IncomeNoteDetailsTitle" xml:space="preserve">
+    <value>Income Details</value>
+  </data>
+  <data name="IncomesTitle" xml:space="preserve">
+    <value>Incomes</value>
+  </data>
+  <data name="Sum" xml:space="preserve">
+    <value>Sum: </value>
+  </data>
 </root>
