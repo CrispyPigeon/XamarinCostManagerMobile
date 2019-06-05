@@ -7,7 +7,13 @@
                       x:Class="CostManagerForms.UI.Pages.IncomeNoteDetailsPage"
                       xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
                       Title="{extensions:Translate IncomeNoteDetailsTitle}">
-
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"
+                     Text="{extensions:Translate RemoveIncomeNoteTitle }"
+                     Command="{Binding DeleteIncomeNoteCommand}"/>
+    </ContentPage.ToolbarItems>
+    
     <Grid Margin="{StaticResource MediumMargin}">
 
         <Grid.RowDefinitions>

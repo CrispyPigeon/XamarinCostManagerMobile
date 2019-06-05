@@ -41,7 +41,8 @@ namespace DAL.Services.RequestProvider
                 OnBeforeDeserialization = resp => { resp.ContentType = Consts.ContentTypeJson; }
             };
 
-            request.AddHeader(Consts.ContentType, contentType);
+            if (contentType != string.Empty)
+                request.AddHeader(Consts.ContentType, contentType);
 
             if (parametersList != null)
             {

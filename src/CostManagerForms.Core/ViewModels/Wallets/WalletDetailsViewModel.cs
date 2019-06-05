@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Acr.UserDialogs;
 using CostManagerForms.Core.Localization;
 using CostManagerForms.Core.Services.Settings;
+using CostManagerForms.Core.ViewModels.CustomMain;
 using DAL.Services.CostManager;
 using Model.RequestItems.Currency;
 using Model.RequestItems.StorageType;
@@ -72,6 +73,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
         private readonly IUserDialogs _dialogs;
 
         public IMvxCommand SaveChangesCommand { get; }
+        public IMvxCommand DeleteWalletCommand { get; }
 
         public WalletDetailsViewModel(IMvxNavigationService navigation,
                                       ICostManagerService costManagerService,
@@ -82,17 +84,36 @@ namespace CostManagerForms.Core.ViewModels.Wallets
             _dialogs = dialogs;
 
             SaveChangesCommand = new MvxAsyncCommand(SaveChanges);
+            DeleteWalletCommand = new MvxAsyncCommand(DeleteWallet);
+        }
+
+        private async Task DeleteWallet()
+        {
+            var confirmed = await _dialogs.ConfirmAsync(
+                AppResources.QuestionRemoveWalletMessage,
+                AppResources.QuestionRemoveTitle,
+                cancelText: AppResources.No);
+
+            if (confirmed)
+            {
+                var result = await _costManagerService.DeleteWalletAsync(AppSettings.Instance.Token, _currentWallet.ID);
+                if (result.IsSuccess)
+                {
+                    _dialogs.Alert(AppResources.RemoveSuccessfullyMessage, AppResources.WalletTitle);
+                    await _navigation.Close(this);
+                }
+            }
         }
 
         private async Task SaveChanges()
-        {
+        {            
+            _currentWallet.CurrencyID = _selectedCurrency.ID;
+            _currentWallet.StorageTypeID = _selectedStorageType.ID;
             if (!ValidateData())
             {
                 _dialogs.Alert(AppResources.EmptyFieldsMessage, AppResources.ErrorTitle);
                 return;
             }
-            _currentWallet.CurrencyID = _selectedCurrency.ID;
-            _currentWallet.StorageTypeID = _selectedStorageType.ID;
             var message = await _costManagerService.PostWalletAsync(AppSettings.Instance.Token, _currentWallet);
             if (message.StatusCode != (int)HttpStatusCode.OK)
             {
@@ -101,7 +122,7 @@ namespace CostManagerForms.Core.ViewModels.Wallets
             else
             {
                 _dialogs.Alert(AppResources.DataSentMessage, AppResources.SuccessTitle);
-                await _navigation.Close(this);
+                await _navigation.Navigate<CustomMainViewModel>();
             }
         }
 

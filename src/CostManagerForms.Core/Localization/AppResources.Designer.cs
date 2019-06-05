@@ -259,6 +259,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check your internet connection..
         /// </summary>
         internal static string NoConnectionMessage {
@@ -323,11 +332,65 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you really want to remove income?.
+        /// </summary>
+        internal static string QuestionRemoveIncomeMessage {
+            get {
+                return ResourceManager.GetString("QuestionRemoveIncomeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        internal static string QuestionRemoveTitle {
+            get {
+                return ResourceManager.GetString("QuestionRemoveTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you really want to remove wallet?.
+        /// </summary>
+        internal static string QuestionRemoveWalletMessage {
+            get {
+                return ResourceManager.GetString("QuestionRemoveWalletMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration.
         /// </summary>
         internal static string Registration {
             get {
                 return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove income.
+        /// </summary>
+        internal static string RemoveIncomeNoteTitle {
+            get {
+                return ResourceManager.GetString("RemoveIncomeNoteTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item removed successfully!.
+        /// </summary>
+        internal static string RemoveSuccessfullyMessage {
+            get {
+                return ResourceManager.GetString("RemoveSuccessfullyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove wallet.
+        /// </summary>
+        internal static string RemoveWalletTitle {
+            get {
+                return ResourceManager.GetString("RemoveWalletTitle", resourceCulture);
             }
         }
         
@@ -377,6 +440,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wallet Details.
+        /// </summary>
+        internal static string WalletDetailsTitle {
+            get {
+                return ResourceManager.GetString("WalletDetailsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wallets.
         /// </summary>
         internal static string Wallets {
@@ -386,7 +458,7 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wallet Details.
+        ///   Looks up a localized string similar to Wallet.
         /// </summary>
         internal static string WalletTitle {
             get {

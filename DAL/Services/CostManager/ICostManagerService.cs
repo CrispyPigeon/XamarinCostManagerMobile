@@ -19,8 +19,12 @@ namespace DAL.Services.CostManager
         Task<Message<List<Currency>>> GetCurrencies(string token);
         Task<Message<List<StorageType>>> GetStorageTypes(string token);
         Task<Message<List<IncomeNote>>> GetIncomeNotes(string token);
+        Task<Message<List<Cost>>> GetCostsNotes(string token);
         Task<Message> PostWalletAsync(string token, Wallet wallet);
         Task<Message> PostIncomeNoteAsync(string token, IncomeNote incomeNote);
         Task<Message> PostCostAsync(string token, Cost cost);
+        Task<Message> DeleteWalletAsync(string token, int walletId);
+        Task<Message> DeleteIncomeNoteAsync(string token, int incomeId);
+        Task<Message> DeleteCostAsync(string token, int costId);
     }
 }

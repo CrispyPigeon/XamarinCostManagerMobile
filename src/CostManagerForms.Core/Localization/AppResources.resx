@@ -208,7 +208,7 @@ please add some wallets or costs!</value>
   <data name="Wallets" xml:space="preserve">
     <value>Wallets</value>
   </data>
-  <data name="WalletTitle" xml:space="preserve">
+  <data name="WalletDetailsTitle" xml:space="preserve">
     <value>Wallet Details</value>
   </data>
   <data name="Accept" xml:space="preserve">
@@ -228,5 +228,29 @@ please add some wallets or costs!</value>
   </data>
   <data name="Sum" xml:space="preserve">
     <value>Sum: </value>
+  </data>
+  <data name="RemoveSuccessfullyMessage" xml:space="preserve">
+    <value>Item removed successfully!</value>
+  </data>
+  <data name="WalletTitle" xml:space="preserve">
+    <value>Wallet</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="QuestionRemoveIncomeMessage" xml:space="preserve">
+    <value>Are you really want to remove income?</value>
+  </data>
+  <data name="QuestionRemoveTitle" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="QuestionRemoveWalletMessage" xml:space="preserve">
+    <value>Are you really want to remove wallet?</value>
+  </data>
+  <data name="RemoveIncomeNoteTitle" xml:space="preserve">
+    <value>Remove income</value>
+  </data>
+  <data name="RemoveWalletTitle" xml:space="preserve">
+    <value>Remove wallet</value>
   </data>
 </root>

@@ -120,6 +120,16 @@ namespace DAL.Services.CostManager
                    ?? throw new Exception();
         }
 
+        public async Task<Message<List<Cost>>> GetCostsNotes(string token)
+        {
+            var request = Consts.CostsEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message<List<Cost>>>(request,
+                       Consts.ContentTypeUrlencoded,
+                       Method.GET)
+                   ?? throw new Exception();
+        }
+
         public async Task<Message> PostWalletAsync(string token, Wallet wallet)
         {
             var request = Consts.WalletsEndPoint;
@@ -150,6 +160,36 @@ namespace DAL.Services.CostManager
                                                                Consts.ContentTypeJson,
                                                                Method.POST,
                                                                data: cost)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message> DeleteWalletAsync(string token, int walletId)
+        {
+            var request = string.Concat(Consts.WalletsEndPoint, Consts.RequestSeparartor, walletId);
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message>(request,
+                                                               string.Empty,
+                                                               Method.DELETE)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message> DeleteIncomeNoteAsync(string token, int incomeId)
+        {
+            var request = string.Concat(Consts.IncomeNotesEndPoint, Consts.RequestSeparartor, incomeId);
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message>(request,
+                                                               string.Empty,
+                                                               Method.DELETE)
+                   ?? throw new Exception();
+        }
+
+        public async Task<Message> DeleteCostAsync(string token, int costId)
+        {
+            var request = string.Concat(Consts.CostsEndPoint, Consts.RequestSeparartor, costId);
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message>(request,
+                                                               string.Empty,
+                                                               Method.DELETE)
                    ?? throw new Exception();
         }
     }

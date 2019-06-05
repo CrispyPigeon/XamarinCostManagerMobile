@@ -34,6 +34,7 @@ namespace CostManagerForms.Core.ViewModels.IncomeNotes
         private readonly IUserDialogs _dialogs;
 
         public IMvxCommand SaveChangesCommand { get; }
+        public IMvxCommand DeleteIncomeNoteCommand { get; }
 
         public IncomeNoteDetailsViewModel(IMvxNavigationService navigation,
                                           ICostManagerService costManagerService,
@@ -44,6 +45,25 @@ namespace CostManagerForms.Core.ViewModels.IncomeNotes
             _dialogs = dialogs;
 
             SaveChangesCommand = new MvxAsyncCommand(SaveChanges);
+            DeleteIncomeNoteCommand = new MvxAsyncCommand(DeleteIncomeNote);
+        }
+
+        private async Task DeleteIncomeNote()
+        {
+            var confirmed = await _dialogs.ConfirmAsync(
+                AppResources.QuestionRemoveIncomeMessage,
+                AppResources.QuestionRemoveTitle,
+                cancelText: AppResources.No);
+
+            if (confirmed)
+            {
+                var result = await _costManagerService.DeleteIncomeNoteAsync(AppSettings.Instance.Token, _currentIncomeNote.ID);
+                if (result.IsSuccess)
+                {
+                    _dialogs.Alert(AppResources.RemoveSuccessfullyMessage, AppResources.WalletTitle);
+                    await _navigation.Close(this);
+                }
+            }
         }
 
         private async Task SaveChanges()

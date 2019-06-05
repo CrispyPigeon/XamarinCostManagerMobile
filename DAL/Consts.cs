@@ -22,6 +22,7 @@ namespace DAL
         public const string Username = "username";
         public const string Login = "Login"; 
         public const string ConfirmPassword = "ConfirmPassword";
+        public const string RequestSeparartor = "/";
 
         // <== Request End Points ==>
         public const string LoginEndPoint = "account/login";

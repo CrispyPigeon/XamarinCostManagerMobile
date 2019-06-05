@@ -6,8 +6,14 @@
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                          x:Class="CostManagerForms.UI.Pages.WalletDetailsPage"
                          xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
-                         Title="{extensions:Translate WalletTitle}">
-
+                         Title="{extensions:Translate WalletDetailsTitle}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"
+                     Text="{extensions:Translate RemoveWalletTitle}"
+                     Command="{Binding DeleteWalletCommand}"/>
+    </ContentPage.ToolbarItems>
+    
     <Grid Margin="{StaticResource MediumMargin}">
         
         <Grid.RowDefinitions>
