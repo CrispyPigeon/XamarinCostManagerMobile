@@ -6,6 +6,7 @@ using DAL.Helpers;
 using DAL.Services.RequestProvider;
 using Model.RequestItems;
 using Model.RequestItems.Base;
+using Model.RequestItems.CostCategory;
 using Model.RequestItems.Costs;
 using Model.RequestItems.Currency;
 using Model.RequestItems.IncomeNotes;
@@ -130,6 +131,16 @@ namespace DAL.Services.CostManager
                    ?? throw new Exception();
         }
 
+        public async Task<Message<List<CostCategory>>> GetCostCategories(string token)
+        {
+            var request = Consts.CostCategoryEndPoint;
+            _requestProvider.Token = token;
+            return await _requestProvider.MakeApiCall<Message<List<CostCategory>>>(request,
+                       Consts.ContentTypeUrlencoded,
+                       Method.GET)
+                   ?? throw new Exception();
+        }
+
         public async Task<Message> PostWalletAsync(string token, Wallet wallet)
         {
             var request = Consts.WalletsEndPoint;
@@ -191,6 +202,6 @@ namespace DAL.Services.CostManager
                                                                string.Empty,
                                                                Method.DELETE)
                    ?? throw new Exception();
-        }
+        }        
     }
 }

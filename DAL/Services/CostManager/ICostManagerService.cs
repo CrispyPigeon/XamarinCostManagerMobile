@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Model.RequestItems;
 using Model.RequestItems.Base;
+using Model.RequestItems.CostCategory;
 using Model.RequestItems.Costs;
 using Model.RequestItems.Currency;
 using Model.RequestItems.IncomeNotes;
@@ -20,11 +21,12 @@ namespace DAL.Services.CostManager
         Task<Message<List<StorageType>>> GetStorageTypes(string token);
         Task<Message<List<IncomeNote>>> GetIncomeNotes(string token);
         Task<Message<List<Cost>>> GetCostsNotes(string token);
+        Task<Message<List<CostCategory>>> GetCostCategories(string token);
         Task<Message> PostWalletAsync(string token, Wallet wallet);
         Task<Message> PostIncomeNoteAsync(string token, IncomeNote incomeNote);
         Task<Message> PostCostAsync(string token, Cost cost);
         Task<Message> DeleteWalletAsync(string token, int walletId);
         Task<Message> DeleteIncomeNoteAsync(string token, int incomeId);
-        Task<Message> DeleteCostAsync(string token, int costId);
+        Task<Message> DeleteCostAsync(string token, int costId); 
     }
 }

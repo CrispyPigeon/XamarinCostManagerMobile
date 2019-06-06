@@ -33,5 +33,6 @@ namespace DAL
         public const string StorageTypesEndPoint = "storagetype";
         public const string IncomeNotesEndPoint = "incomenote";
         public const string CostsEndPoint = "cost";
+        public const string CostCategoryEndPoint = "costcategory";
     }
 }
