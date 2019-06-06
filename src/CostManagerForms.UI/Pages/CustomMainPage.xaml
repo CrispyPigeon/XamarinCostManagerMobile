@@ -14,6 +14,12 @@
                          xmlns:wallets="clr-namespace:CostManagerForms.UI.Controls.Views.Wallets"
                          xmlns:costs="clr-namespace:CostManagerForms.UI.Controls.Views.Costs">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"
+                     Text="{extensions:Translate LogoutTitle}"
+                     Command="{Binding LogOutCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Resources>
         <ResourceDictionary>
 

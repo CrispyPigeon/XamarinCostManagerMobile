@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
+using CostManagerForms.Core.Localization;
+using CostManagerForms.Core.Services.Settings;
 using CostManagerForms.Core.ViewModels.Costs;
 using CostManagerForms.Core.ViewModels.Menu;
+using CostManagerForms.Core.ViewModels.SignIn;
 using CostManagerForms.Core.ViewModels.Statistics;
 using CostManagerForms.Core.ViewModels.Wallets;
 using DAL.Services.CostManager;
@@ -34,10 +39,18 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
         public IMvxCommand GoToWalletsPartCommand { get; }
         public IMvxCommand GoToCostsPartCommand { get; }
         public IMvxCommand OpenMenuCommand { get; }
+        public IMvxCommand LogOutCommand { get; }
+
+        private readonly IUserDialogs _dialogs;
+        private readonly IMvxNavigationService _navigation;
 
         public CustomMainViewModel(IMvxNavigationService navigation,
-                                   ICostManagerService costManagerService)
+                                   ICostManagerService costManagerService,
+                                   IUserDialogs dialogs)
         {
+            _navigation = navigation;
+            _dialogs = dialogs;
+
             _viewModels = new List<BaseViewModel>();
             var viewModel1 = new CustomMainWalletsViewModel(navigation, costManagerService);
             ViewDidLoaded += viewModel1.ViewLoaded;
@@ -52,7 +65,22 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
             GoToWalletsPartCommand = new MvxCommand(() => ChangeView(0));
             GoToStatisticPartCommand = new MvxCommand(() => ChangeView(1));
             GoToCostsPartCommand = new MvxCommand(() => ChangeView(2));
-           // OpenMenuCommand = new MvxAsyncCommand(async() => await navigation.Navigate<MenuViewModel>());
+            LogOutCommand = new MvxAsyncCommand(LogOut);
+            // OpenMenuCommand = new MvxAsyncCommand(async() => await navigation.Navigate<MenuViewModel>());
+        }
+
+        private async Task LogOut()
+        {
+            var confirmed = await _dialogs.ConfirmAsync(
+                AppResources.LogoutMessage,
+                AppResources.LogoutTitle,
+                cancelText: AppResources.No);
+
+            if (confirmed)
+            {
+                AppSettings.Instance.SignOut();
+                await _navigation.Navigate<SignInViewModel>();
+            }
         }
 
         private void ChangeView(int v)

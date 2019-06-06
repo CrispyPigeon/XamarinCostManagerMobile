@@ -268,4 +268,10 @@ please add some wallets or costs!</value>
   <data name="RemoveCostTitle" xml:space="preserve">
     <value>Remove cost</value>
   </data>
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>Are you really want to log out?</value>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>Log out</value>
+  </data>
 </root>
