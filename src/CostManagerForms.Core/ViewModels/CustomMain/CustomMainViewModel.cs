@@ -43,7 +43,7 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
             ViewDidLoaded += viewModel1.ViewLoaded;
             var viewModel2 = new CustomMainStatisticViewModel(costManagerService);
             ViewDidLoaded += viewModel2.ViewLoaded;
-            var viewModel3 = new CustomMainCostsViewModel();
+            var viewModel3 = new CustomMainCostsViewModel(navigation, costManagerService);
             ViewDidLoaded += viewModel3.ViewLoaded;
             _viewModels.Add(viewModel1);
             _viewModels.Add(viewModel2);

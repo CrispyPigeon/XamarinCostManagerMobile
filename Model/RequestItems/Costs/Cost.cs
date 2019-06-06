@@ -11,7 +11,7 @@ namespace Model.RequestItems.Costs
         public int WalletID { get; set; }
         public int UserID { get; set; }
         public decimal Sum { get; set; }
-        public System.DateTime Date { get; set; }
+        public DateTime Date { get; set; }
         public int CostCategoryID { get; set; }
     }
 }

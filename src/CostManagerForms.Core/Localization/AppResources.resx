@@ -253,4 +253,19 @@ please add some wallets or costs!</value>
   <data name="RemoveWalletTitle" xml:space="preserve">
     <value>Remove wallet</value>
   </data>
+  <data name="CostCategory" xml:space="preserve">
+    <value>Cost category: </value>
+  </data>
+  <data name="CostDetails" xml:space="preserve">
+    <value>Cost Details</value>
+  </data>
+  <data name="CostTitle" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="QuestionRemoveCostMessage" xml:space="preserve">
+    <value>Are you really want to remove cost?</value>
+  </data>
+  <data name="RemoveCostTitle" xml:space="preserve">
+    <value>Remove cost</value>
+  </data>
 </root>

@@ -88,6 +88,24 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cost category: .
+        /// </summary>
+        internal static string CostCategory {
+            get {
+                return ResourceManager.GetString("CostCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cost Details.
+        /// </summary>
+        internal static string CostDetails {
+            get {
+                return ResourceManager.GetString("CostDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Costs.
         /// </summary>
         internal static string Costs {
@@ -102,6 +120,15 @@ namespace CostManagerForms.Core.Localization {
         internal static string CostsSum {
             get {
                 return ResourceManager.GetString("CostsSum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cost.
+        /// </summary>
+        internal static string CostTitle {
+            get {
+                return ResourceManager.GetString("CostTitle", resourceCulture);
             }
         }
         
@@ -332,6 +359,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you really want to remove cost?.
+        /// </summary>
+        internal static string QuestionRemoveCostMessage {
+            get {
+                return ResourceManager.GetString("QuestionRemoveCostMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you really want to remove income?.
         /// </summary>
         internal static string QuestionRemoveIncomeMessage {
@@ -364,6 +400,15 @@ namespace CostManagerForms.Core.Localization {
         internal static string Registration {
             get {
                 return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove cost.
+        /// </summary>
+        internal static string RemoveCostTitle {
+            get {
+                return ResourceManager.GetString("RemoveCostTitle", resourceCulture);
             }
         }
         

@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CostManagerForms.Core.Localization;
 using CostManagerForms.Core.Services.Settings;
+using CostManagerForms.Core.ViewModels.IncomeNotes;
 using CostManagerForms.Core.ViewModels._Base;
 using DAL.Services.CostManager;
 using Model.Other;
 using Model.RequestItems.CostCategory;
+using Model.RequestItems.Costs;
+using Model.RequestItems.IncomeNotes;
 using Model.RequestItems.StorageType;
 using Model.RequestItems.Wallet;
 using MvvmCross.Commands;
@@ -75,6 +79,14 @@ namespace CostManagerForms.Core.ViewModels.Costs
         {
             _navigation = navigation;
             _costManagerService = costManagerService;
+
+            CreateCostCommand = new MvxAsyncCommand<Cost>((cost) => GoToCostDetailsPage(new Cost{WalletID = _selectedWallet.ID}));
+            GoToCostDetailsPageCommand = new MvxAsyncCommand<JoinedCost>((cost) => GoToCostDetailsPage(cost.Cost));
+        }
+
+        private async Task GoToCostDetailsPage(Cost cost)
+        {
+            await _navigation.Navigate<CostDetailsViewModel, Cost>(cost);
         }
 
         public override async Task LoadData()
@@ -105,8 +117,10 @@ namespace CostManagerForms.Core.ViewModels.Costs
                 {
                     WalletsList = walletsResponse.Data;
                     SelectedWallet = WalletsList.FirstOrDefault();
-                    CostCategoriesList = costCategoryResponse.Data;
-                    SelectedCostCategory = CostCategoriesList.FirstOrDefault();
+                    var categoryList = costCategoryResponse.Data;
+                    categoryList.Add(new CostCategory { ID = 0, Name = AppResources.All });
+                    CostCategoriesList = categoryList;
+                    SelectedCostCategory = CostCategoriesList.FirstOrDefault(x => x.ID == 0);
                 }
                 else
                 {
@@ -117,11 +131,19 @@ namespace CostManagerForms.Core.ViewModels.Costs
 
         private void UpdateShowingData()
         {
-            if (_selectedWallet == null && _selectedCostCategory == null)
+            if (_selectedWallet != null && _selectedCostCategory != null)
             {
-                CostsList = _allCostsList.Where(x => x.Wallet.Wallet.ID == _selectedWallet.ID &&
-                                                x.CostCategory.ID == _selectedCostCategory.ID)
-                                                .ToList();
+                if (_selectedCostCategory.ID == 0)
+                {
+                    CostsList = _allCostsList.Where(x => x.Wallet.Wallet.ID == _selectedWallet.ID).ToList();
+                }
+                else
+                {
+                    CostsList = _allCostsList.Where(x => x.Wallet.Wallet.ID == _selectedWallet.ID &&
+                                                         x.CostCategory.ID == _selectedCostCategory.ID)
+                        .ToList();
+                }
+                
             }
         }
     }

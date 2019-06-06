@@ -4,10 +4,72 @@
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns="http://xamarin.com/schemas/2014/forms" 
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:behaviors="clr-namespace:CostManagerForms.UI.Behaviors;assembly=CostManagerForms.UI"
+                      xmlns:cells="clr-namespace:CostManagerForms.UI.Controls.Cells;assembly=CostManagerForms.UI"
                       x:Class="CostManagerForms.UI.Controls.Views.Costs.CostsView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+
+    <ContentView.Resources>
+        <DataTemplate x:Key="CostCell">
+            <cells:CostCell/>
+        </DataTemplate>
+    </ContentView.Resources>
+
+    <AbsoluteLayout>
+
+        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+              AbsoluteLayout.LayoutFlags="All"
+              Margin="{StaticResource MediumMargin}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Picker Grid.Row="0"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding WalletsList}"
+                    SelectedItem="{Binding SelectedWallet}"/>
+
+            <Picker Grid.Row="1"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding CostCategoriesList}"
+                    SelectedItem="{Binding SelectedCostCategory}"/>
+
+            <ListView Grid.Row="2"
+                      SelectionMode="None"
+                      HasUnevenRows="True"
+                      BackgroundColor="Transparent"
+                      ItemsSource="{Binding CostsList}"
+                      ItemTemplate="{StaticResource CostCell}">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                      Command="{Binding GoToCostDetailsPageCommand}"
+                                                      EventArgsConverter="{StaticResource ItemTappedConverter}"/>
+                </ListView.Behaviors>
+            </ListView>
+
+        </Grid>
+
+        <Frame AbsoluteLayout.LayoutBounds="0.95,0.95,60,60"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               Padding="0"
+               CornerRadius="30"
+               BackgroundColor="{StaticResource PrimaryColor}">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CreateCostCommand}"/>
+            </Frame.GestureRecognizers>
+
+            <Label Text="+"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource SecondaryTextColor}"/>
+
+        </Frame>
+
+    </AbsoluteLayout>
+
 </views:MvxContentView>
