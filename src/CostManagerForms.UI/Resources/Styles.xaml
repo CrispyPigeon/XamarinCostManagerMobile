@@ -21,4 +21,9 @@
         <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
     </Style>
 
+    <Style x:Key="HorizontalSeparatorStyle" TargetType="Label">
+        <Setter Property="BackgroundColor" Value="{StaticResource StandardFrameColor}"/>
+        <Setter Property="Margin" Value="{StaticResource HorizontalSmallMargin}"/>
+    </Style>
+
 </ResourceDictionary>

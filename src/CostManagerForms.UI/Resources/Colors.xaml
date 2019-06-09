@@ -16,7 +16,8 @@
     <Color x:Key="SecondaryTextColor">#ffffff</Color>
 
     <Color x:Key="AcceptButtonColor">#35c469</Color>
-    
+
+    <Color x:Key="StandardFrameColor">#cccccc</Color>
 
     <Color x:Key="TransparentColor">#00000000</Color>
 

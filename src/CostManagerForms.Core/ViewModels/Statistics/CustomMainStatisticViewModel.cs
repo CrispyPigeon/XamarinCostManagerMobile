@@ -43,8 +43,8 @@ namespace CostManagerForms.Core.ViewModels.Statistics
             get => _selectedStatistic;
             set
             {
-                UpdateChart();
                 SetProperty(ref _selectedStatistic, value);
+                UpdateChart();
             }
         }
 
@@ -66,20 +66,21 @@ namespace CostManagerForms.Core.ViewModels.Statistics
 
             if (statisticListMessage.Data != null)
             {
-                StatisticList = statisticListMessage.Data;
+                if (StatisticList == null)
+                    StatisticList = statisticListMessage.Data;
+                else
+                {
+                    StatisticList.Clear();
+                    StatisticList.AddRange(statisticListMessage.Data);
+                }
 
                 SelectedStatistic = StatisticList?.FirstOrDefault();
-
-                UpdateChart();
             }
         }
 
         private void UpdateChart()
         {
-            if (SelectedStatistic == null)
-                return;
-
-            if (SelectedStatistic.Costs.Count == 0)
+            if (SelectedStatistic == null || SelectedStatistic.Costs.Count == 0)
             {
                 IsChartVisible = false;
                 return;

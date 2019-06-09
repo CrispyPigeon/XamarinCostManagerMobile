@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:MenuViewModel"
+                      xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.Menu;assembly=CostManagerForms.Core"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
+                      x:Class="CostManagerForms.UI.Pages.MenuPage"
+                      Title="{extensions:Translate MenuTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"
+                     Text="{extensions:Translate LogoutTitle}"
+                     Command="{Binding LogOutCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid Margin="{StaticResource MediumMargin}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3.5*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Margin="{StaticResource MediumMargin}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseMenuCommand}"/>
+            </Grid.GestureRecognizers>
+
+            <Image Grid.Row="0"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Aspect="AspectFit"
+                   Source="LogoHiRes.png"/>
+
+            <StackLayout Grid.Row="1"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="End">          
+
+                <Label FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       Text="{extensions:Translate MainTitle}"/>
+
+                <Label HorizontalTextAlignment="Center"
+                       Text="{extensions:Translate MainMessage}"/>
+
+            </StackLayout>
+
+        </Grid>
+
+        <Label Grid.Row="1"
+               Style="{StaticResource HorizontalSeparatorStyle}"/>
+
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame VerticalOptions="Center"
+                   BorderColor="{StaticResource PrimaryDarkColor}"
+                   BackgroundColor="LightCoral">
+
+                <Label HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource SecondaryTextColor}"/>
+
+            </Frame>
+
+            <StackLayout Grid.Column="1"
+                         VerticalOptions="Center">
+
+                <Label FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       Text="{extensions:Translate EcoplanTitle}"/>
+
+                <Label Text="{extensions:Translate EcoplanMessage}"/>
+                
+            </StackLayout>
+
+        </Grid>
+
+        <Label Grid.Row="3"
+               Style="{StaticResource HorizontalSeparatorStyle}"/>
+
+        <Grid Grid.Row="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame VerticalOptions="Center"
+                   BorderColor="{StaticResource PrimaryDarkColor}"
+                   BackgroundColor="AliceBlue">
+
+                <Label HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource SecondaryTextColor}"/>
+
+            </Frame>
+
+            <StackLayout Grid.Column="1"
+                         VerticalOptions="Center">
+
+                <Label FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       Text="{extensions:Translate SettingsTitle}"/>
+
+                <Label Text="{extensions:Translate SettingsMessage}"/>
+
+            </StackLayout>
+
+        </Grid>
+
+        <Label Grid.Row="5"
+               Style="{StaticResource HorizontalSeparatorStyle}"/>
+
+        <Grid Grid.Row="6">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LogOutCommand}"/>
+            </Grid.GestureRecognizers>
+            
+            <Frame VerticalOptions="Center"
+                   BorderColor="{StaticResource PrimaryDarkColor}"
+                   BackgroundColor="GreenYellow">
+
+                <Label HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource SecondaryTextColor}"/>
+
+            </Frame>
+
+            <StackLayout Grid.Column="1"
+                         VerticalOptions="Center">
+
+                <Label FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       Text="{extensions:Translate LogoutTitle}"/>
+
+                <Label Text="{extensions:Translate ComeBackMessage}"/>
+
+            </StackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</views:MvxContentPage>

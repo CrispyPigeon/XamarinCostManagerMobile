@@ -79,6 +79,15 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ComeBack.
+        /// </summary>
+        internal static string ComeBackMessage {
+            get {
+                return ResourceManager.GetString("ComeBackMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CostManager.
         /// </summary>
         internal static string CompanyName {
@@ -156,6 +165,24 @@ namespace CostManagerForms.Core.Localization {
         internal static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create econom plan.
+        /// </summary>
+        internal static string EcoplanMessage {
+            get {
+                return ResourceManager.GetString("EcoplanMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EcoPlan.
+        /// </summary>
+        internal static string EcoplanTitle {
+            get {
+                return ResourceManager.GetString("EcoplanTitle", resourceCulture);
             }
         }
         
@@ -291,6 +318,33 @@ namespace CostManagerForms.Core.Localization {
         internal static string LogoutTitle {
             get {
                 return ResourceManager.GetString("LogoutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics, Costs, Incomes.
+        /// </summary>
+        internal static string MainMessage {
+            get {
+                return ResourceManager.GetString("MainMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MAIN.
+        /// </summary>
+        internal static string MainTitle {
+            get {
+                return ResourceManager.GetString("MainTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu.
+        /// </summary>
+        internal static string MenuTitle {
+            get {
+                return ResourceManager.GetString("MenuTitle", resourceCulture);
             }
         }
         
@@ -454,6 +508,24 @@ namespace CostManagerForms.Core.Localization {
         internal static string RemoveWalletTitle {
             get {
                 return ResourceManager.GetString("RemoveWalletTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App settings.
+        /// </summary>
+        internal static string SettingsMessage {
+            get {
+                return ResourceManager.GetString("SettingsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string SettingsTitle {
+            get {
+                return ResourceManager.GetString("SettingsTitle", resourceCulture);
             }
         }
         

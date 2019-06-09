@@ -274,4 +274,28 @@ please add some wallets or costs!</value>
   <data name="LogoutTitle" xml:space="preserve">
     <value>Log out</value>
   </data>
+  <data name="ComeBackMessage" xml:space="preserve">
+    <value>ComeBack</value>
+  </data>
+  <data name="EcoplanMessage" xml:space="preserve">
+    <value>Create econom plan</value>
+  </data>
+  <data name="EcoplanTitle" xml:space="preserve">
+    <value>EcoPlan</value>
+  </data>
+  <data name="MainMessage" xml:space="preserve">
+    <value>Statistics, Costs, Incomes</value>
+  </data>
+  <data name="MainTitle" xml:space="preserve">
+    <value>MAIN</value>
+  </data>
+  <data name="MenuTitle" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="SettingsMessage" xml:space="preserve">
+    <value>App settings</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
 </root>

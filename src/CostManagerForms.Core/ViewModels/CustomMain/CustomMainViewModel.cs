@@ -38,8 +38,7 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
         public IMvxCommand GoToStatisticPartCommand { get; }
         public IMvxCommand GoToWalletsPartCommand { get; }
         public IMvxCommand GoToCostsPartCommand { get; }
-        public IMvxCommand OpenMenuCommand { get; }
-        public IMvxCommand LogOutCommand { get; }
+        public IMvxCommand MenuCommand { get; }
 
         private readonly IUserDialogs _dialogs;
         private readonly IMvxNavigationService _navigation;
@@ -65,22 +64,7 @@ namespace CostManagerForms.Core.ViewModels.CustomMain
             GoToWalletsPartCommand = new MvxCommand(() => ChangeView(0));
             GoToStatisticPartCommand = new MvxCommand(() => ChangeView(1));
             GoToCostsPartCommand = new MvxCommand(() => ChangeView(2));
-            LogOutCommand = new MvxAsyncCommand(LogOut);
-            // OpenMenuCommand = new MvxAsyncCommand(async() => await navigation.Navigate<MenuViewModel>());
-        }
-
-        private async Task LogOut()
-        {
-            var confirmed = await _dialogs.ConfirmAsync(
-                AppResources.LogoutMessage,
-                AppResources.LogoutTitle,
-                cancelText: AppResources.No);
-
-            if (confirmed)
-            {
-                AppSettings.Instance.SignOut();
-                await _navigation.Navigate<SignInViewModel>();
-            }
+            MenuCommand = new MvxAsyncCommand(async() => await navigation.Navigate<MenuViewModel>());
         }
 
         private void ChangeView(int v)
