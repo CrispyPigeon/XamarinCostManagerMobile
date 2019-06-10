@@ -50,8 +50,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <AndroidLinkSkip>CostManagerForms.Core;CostManagerForms.UI;</AndroidLinkSkip>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidLinkSkip>CostManagerForms.Core;CostManagerForms.UI;CostManagerForms.Android;</AndroidLinkSkip>
     <EnableProguard>false</EnableProguard>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
