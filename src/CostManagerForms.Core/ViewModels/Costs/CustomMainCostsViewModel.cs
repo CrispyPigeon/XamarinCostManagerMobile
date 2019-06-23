@@ -16,6 +16,7 @@ using Model.RequestItems.StorageType;
 using Model.RequestItems.Wallet;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
+using Acr.UserDialogs;
 
 namespace CostManagerForms.Core.ViewModels.Costs
 {
@@ -70,18 +71,31 @@ namespace CostManagerForms.Core.ViewModels.Costs
 
         private readonly IMvxNavigationService _navigation;
         private readonly ICostManagerService _costManagerService;
+        private readonly IUserDialogs _dialogs;
 
         public IMvxCommand CreateCostCommand { get; }
         public IMvxCommand GoToCostDetailsPageCommand { get; }
 
         public CustomMainCostsViewModel(IMvxNavigationService navigation,
-                                        ICostManagerService costManagerService)
+                                        ICostManagerService costManagerService,
+                                        IUserDialogs dialogs)
         {
             _navigation = navigation;
             _costManagerService = costManagerService;
+            _dialogs = dialogs;
 
-            CreateCostCommand = new MvxAsyncCommand<Cost>((cost) => GoToCostDetailsPage(new Cost{WalletID = _selectedWallet.ID}));
+            CreateCostCommand = new MvxAsyncCommand(CreateCost);
             GoToCostDetailsPageCommand = new MvxAsyncCommand<JoinedCost>((cost) => GoToCostDetailsPage(cost.Cost));
+        }
+
+        private async Task CreateCost()
+        {
+            if (_selectedWallet == null)
+            {
+                _dialogs.Alert(AppResources.NoWalletsMessage, AppResources.NoConnectionTitle);
+                return;
+            }
+            await GoToCostDetailsPage(new Cost { WalletID = _selectedWallet.ID });
         }
 
         private async Task GoToCostDetailsPage(Cost cost)
@@ -143,7 +157,7 @@ namespace CostManagerForms.Core.ViewModels.Costs
                                                          x.CostCategory.ID == _selectedCostCategory.ID)
                         .ToList();
                 }
-                
+
             }
         }
     }

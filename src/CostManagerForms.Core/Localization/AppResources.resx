@@ -298,4 +298,10 @@ please add some wallets or costs!</value>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="NoWalletsMessage" xml:space="preserve">
+    <value>Wallets no found! Create new wallet at first.</value>
+  </data>
+  <data name="NoWalletsTitle" xml:space="preserve">
+    <value>No wallets</value>
+  </data>
 </root>

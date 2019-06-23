@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CostManagerForms.Core.Controls.Entry;
 using CostManagerForms.Core.Services.Settings;
 using CostManagerForms.Core.ViewModels._Base;
 using DAL.Services.CostManager;
@@ -90,13 +91,14 @@ namespace CostManagerForms.Core.ViewModels.Statistics
                 IsChartVisible = true;
             }
 
-            var entries = new List<Entry>();
+            var entries = new List<ExtendedMicrochartsEntry>();
             foreach (var item in SelectedStatistic.Costs)
             {
-                entries.Add(new Entry((float)item.Sum)
+                entries.Add(new ExtendedMicrochartsEntry((float)item.Sum)
                 {
                     Label = item.CategoryName,
                     Color = SKColor.Parse(item.RgbColor),
+                    RgbColor = item.RgbColor,
                     ValueLabel = item.Sum.ToString(),
                 });
             }
@@ -105,7 +107,7 @@ namespace CostManagerForms.Core.ViewModels.Statistics
             {
                 Entries = entries,
                 HoleRadius = 0.1f,
-                LabelTextSize = 40f,
+                LabelTextSize = 0f,
                 BackgroundColor = SKColors.Transparent
             };
         }

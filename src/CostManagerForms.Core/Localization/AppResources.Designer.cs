@@ -385,12 +385,30 @@ namespace CostManagerForms.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wallets no found! Create new wallet at first..
+        /// </summary>
+        internal static string NoWalletsMessage {
+            get {
+                return ResourceManager.GetString("NoWalletsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To see diagram,
         ///please add some wallets or costs!.
         /// </summary>
         internal static string NoWalletsOrCostMessage {
             get {
                 return ResourceManager.GetString("NoWalletsOrCostMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No wallets.
+        /// </summary>
+        internal static string NoWalletsTitle {
+            get {
+                return ResourceManager.GetString("NoWalletsTitle", resourceCulture);
             }
         }
         

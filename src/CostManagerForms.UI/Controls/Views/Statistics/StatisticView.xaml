@@ -43,9 +43,38 @@
                Text="{extensions:Translate NoWalletsOrCostMessage}"
                IsVisible="{Binding IsChartVisible, Converter={StaticResource BoolOppositeResultConverter}}"/>
 
-        <microcharts:ChartView Grid.Row="1"
-                               Chart="{Binding StatisticChart}"
-                               IsVisible="{Binding IsChartVisible}"/>
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <microcharts:ChartView Grid.Row="0"
+                                   Chart="{Binding StatisticChart}"
+                                   IsVisible="{Binding IsChartVisible}"/>
+
+            <ListView Grid.Row="1"
+                      HasUnevenRows="True"
+                      SelectionMode="None"
+                      ItemsSource="{Binding StatisticChart.Entries}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="4,8">
+                                <Frame Padding="4"
+                                       BackgroundColor="{Binding RgbColor}"/>
+                                <Label Text="{Binding Label}"/>
+                                <Label Text="{Binding ValueLabel}"
+                                       HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
+        </Grid>
 
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
