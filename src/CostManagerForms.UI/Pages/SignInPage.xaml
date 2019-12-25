@@ -86,7 +86,7 @@
                TextColor="{StaticResource SecondaryTextColor}"
                Text="{extensions:Translate Registration}">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding RegistrateCommand}"/>
+                <TapGestureRecognizer Command="{Binding ToRegisterCommand}"/>
             </Label.GestureRecognizers>
         </Label>
 

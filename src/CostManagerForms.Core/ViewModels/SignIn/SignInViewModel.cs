@@ -38,7 +38,7 @@ namespace CostManagerForms.Core.ViewModels.SignIn
         }       
 
         public IMvxCommand SignInCommand { get; }
-        public IMvxCommand RegistrateCommand { get; }
+        public IMvxCommand ToRegisterCommand { get; }
 
         private readonly IUserDialogs _dialogs;
         private readonly IMvxNavigationService _navigation;
@@ -53,10 +53,10 @@ namespace CostManagerForms.Core.ViewModels.SignIn
             _dialogs = dialogs;
 
             SignInCommand = new MvxAsyncCommand(() => RequestCommand(SignInAsync));
-            RegistrateCommand = new MvxAsyncCommand(() => RequestCommand(RegistrateAsync));
+            ToRegisterCommand = new MvxAsyncCommand(() => RequestCommand(ToRegisterAsync));
         }
 
-        private async Task RegistrateAsync()
+        private async Task ToRegisterAsync()
         {
             if (!ValidateLoginData())
                 return;
