@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseMvxContentPage x:TypeArguments="viewModels:CustomMainViewModel"
+                         xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.CustomMain;assembly=CostManagerForms.Core"
+                         xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:base="clr-namespace:CostManagerForms.UI.Pages.Base;assembly=CostManagerForms.UI"   
+                         x:Class="CostManagerForms.UI.Pages.CustomMainPage"             
+                         xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
+                         xmlns:bars="clr-namespace:CostManagerForms.UI.Controls.Bars"
+                         xmlns:selectors="clr-namespace:CostManagerForms.UI.Controls.Selectors"
+                         xmlns:statistics="clr-namespace:CostManagerForms.UI.Controls.Views.Statistics"
+                         xmlns:abstractions="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+                         xmlns:uimodels="clr-namespace:CostManagerForms.UI.UiModels"
+                         xmlns:wallets="clr-namespace:CostManagerForms.UI.Controls.Views.Wallets"
+                         xmlns:costs="clr-namespace:CostManagerForms.UI.Controls.Views.Costs">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <selectors:CarouselMenuViewSelector x:Key="ViewSelector">
+                <selectors:CarouselMenuViewSelector.ViewTemplates>
+                    <DataTemplate>
+                        <wallets:WalletsView />
+                    </DataTemplate>
+                    <DataTemplate>
+                        <statistics:StatisticView />
+                    </DataTemplate>
+                    <DataTemplate>
+                        <costs:CostsView />
+                    </DataTemplate>
+                </selectors:CarouselMenuViewSelector.ViewTemplates>
+            </selectors:CarouselMenuViewSelector>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <bars:TransparentNavigationBar Grid.Row="0"
+                                       TitleLabelText="{extensions:Translate CompanyName}"/>
+
+        <abstractions:CarouselViewControl Grid.Row="1"
+                                          x:Name="CarouselViewControl"
+                                          InterPageSpacing="0"
+                                          ItemsSource="{Binding ViewModels}"
+                                          Position="{Binding ViewModelPosition}"
+                                          ItemTemplate="{StaticResource ViewSelector}"/>
+
+        <selectors:BottomSelectorTemplateView Grid.Row="2"
+                                              x:Name="BottomSelectorTemplateView">
+            <selectors:BottomSelectorTemplateView.TabbedItems>
+                <x:Array Type="{x:Type uimodels:TabbedItemControl}">
+                    <uimodels:TabbedItemControl Name="{extensions:Translate Wallets}"
+                                                PicturePath="IcoWalletCard.png"
+                                                Command="GoToWalletsPartCommand"/>
+                    <uimodels:TabbedItemControl Name="{extensions:Translate Statistic}"
+                                                PicturePath="IcoStatistic.png"
+                                                Command="GoToStatisticPartCommand"/>
+                    <uimodels:TabbedItemControl Name="{extensions:Translate Costs}"
+                                                PicturePath="IcoCost.png"
+                                                Command="GoToCostsPartCommand"/>
+                </x:Array>
+            </selectors:BottomSelectorTemplateView.TabbedItems>
+        </selectors:BottomSelectorTemplateView>
+
+    </Grid>
+
+</base:BaseMvxContentPage>

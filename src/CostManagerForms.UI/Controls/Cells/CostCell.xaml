@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CostManagerForms.UI.Controls.Cells.CostCell">
+
+    <Frame BorderColor="{StaticResource PrimaryDarkColor}"
+           CornerRadius="16"
+           Margin="{StaticResource VerticalSmallMargin}">
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Frame Grid.Column="0"
+                   BorderColor="{StaticResource PrimaryDarkColor}"
+                   BackgroundColor="{Binding CostCategory.RgbColor}"
+                   Padding="16"
+                   CornerRadius="0">
+
+                <Label HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource SecondaryTextColor}"
+                       Text="{Binding Cost.Name, Converter={StaticResource StringFirstLetterConverter}}"/>
+
+            </Frame>
+
+            <Grid Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       Text="{Binding Cost.Name}"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       Text="{Binding Cost.Sum}"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding CostCategory.Name}"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       Text="{Binding Wallet.Currency.Name}"/>
+
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       Text="{Binding Cost.Date, StringFormat='{0:MM.dd.yyyy}'}"/>
+
+            </Grid>
+
+        </Grid>
+
+    </Frame>
+
+</ViewCell>

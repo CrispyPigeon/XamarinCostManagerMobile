@@ -4,15 +4,21 @@
                     x:Class="CostManagerForms.UI.Resources.Colors"
                     xmlns:local="clr-namespace:CostManagerForms.UI.Resources">
 
-    <Color x:Key="PrimaryColor">#4c555a</Color>
-    <Color x:Key="PrimaryDarkColor">#242c31</Color>
-    <Color x:Key="PrimaryLightColor">#788187</Color>
+    <Color x:Key="PrimaryColor">#C21460</Color>
+    <Color x:Key="PrimaryDarkColor">#660B32</Color>
+    <Color x:Key="PrimaryLightColor">#ED5094</Color>
 
-    <Color x:Key="AccentColor">#24b780</Color>
-    <Color x:Key="AccentDarkColor">#008653</Color>
-    <Color x:Key="AccentLightColor">#64eab0</Color>
+    <Color x:Key="AccentColor">#F688D3</Color>
+    <Color x:Key="AccentDarkColor">#8E2E70</Color>
+    <Color x:Key="AccentLightColor">#FDDEF3</Color>
 
     <Color x:Key="PrimaryTextColor">#000000</Color>
     <Color x:Key="SecondaryTextColor">#ffffff</Color>
+
+    <Color x:Key="AcceptButtonColor">#35c469</Color>
+
+    <Color x:Key="StandardFrameColor">#cccccc</Color>
+
+    <Color x:Key="TransparentColor">#00000000</Color>
 
 </ResourceDictionary>

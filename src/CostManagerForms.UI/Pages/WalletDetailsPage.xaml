@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base1:MvxContentPage    xmlns:base1="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                         x:TypeArguments="viewModels:WalletDetailsViewModel"
+                         xmlns="http://xamarin.com/schemas/2014/forms"                    
+                         xmlns:viewModels="clr-namespace:CostManagerForms.Core.ViewModels.Wallets;assembly=CostManagerForms.Core"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         x:Class="CostManagerForms.UI.Pages.WalletDetailsPage"
+                         xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
+                         Title="{extensions:Translate WalletDetailsTitle}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary"
+                     Text="{extensions:Translate RemoveWalletTitle}"
+                     Command="{Binding DeleteWalletCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid Margin="{StaticResource MediumMargin}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   FontSize="Medium"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Text="{extensions:Translate Name}"/>
+
+            <Entry Grid.Row="0"
+                   Grid.Column="1"
+                   FontSize="Medium"
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding CurrentWallet.Name}"/>
+
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   FontSize="Medium"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Text="{extensions:Translate StorageType}"/>
+
+            <Picker Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding StorageTypeList}"
+                    SelectedItem="{Binding SelectedStorageType}"
+                    IsEnabled="{Binding IsStoragePickerEnable}"/>
+
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="Medium"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Text="{extensions:Translate Currency}"/>
+
+            <Picker Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding CurrencyList}"
+                    SelectedItem="{Binding SelectedCurrency}"
+                    IsEnabled="{Binding IsCurrencyPickerEnable}"/>
+
+            <Button Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    CornerRadius="8"
+                    VerticalOptions="End"
+                    Command="{Binding SaveChangesCommand}"
+                    Text="{extensions:Translate Accept}"
+                    TextColor="{StaticResource SecondaryTextColor}"
+                    BackgroundColor="{StaticResource PrimaryLightColor}"/>
+
+        </Grid>
+
+    </Grid>
+    
+</base1:MvxContentPage>

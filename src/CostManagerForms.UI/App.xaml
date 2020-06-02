@@ -4,15 +4,23 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="clr-namespace:MvvmCross.Forms;assembly=MvvmCross.Forms"
-    xmlns:resources="clr-namespace:CostManagerForms.UI.Resources">
+    xmlns:resources="clr-namespace:CostManagerForms.UI.Resources"
+    xmlns:converters="clr-namespace:CostManagerForms.UI.Converters">
     <Application.Resources>
 
         <!--  Application resource dictionary  -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <resources:Colors />
+                <resources:Dimens />
+                <resources:Styles />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
 
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTappedConverter"/>
+            <converters:LastSumConverter x:Key="LastSumConverter"/>
+            <converters:BoolOppositeResultConverter x:Key="BoolOppositeResultConverter"/>
+            <converters:StringFirstLetterConverter x:Key="StringFirstLetterConverter"/>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

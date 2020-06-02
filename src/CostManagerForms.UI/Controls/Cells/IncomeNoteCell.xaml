@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:extensions="clr-namespace:CostManagerForms.UI.Extensions;assembly=CostManagerForms.UI"
+          x:Class="CostManagerForms.UI.Controls.Cells.IncomeNoteCell">
+
+    <Frame BorderColor="{StaticResource PrimaryDarkColor}"
+           CornerRadius="16"
+           Margin="{StaticResource VerticalSmallMargin}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   FontSize="Medium"
+                   TextColor="{StaticResource PrimaryTextColor}"
+                   Text="{Binding Name}"/>
+
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   FontSize="Medium"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"
+                   Text="{Binding Sum}"/>
+
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{extensions:Translate Date}"/>
+                        <Span Text="{Binding Date,StringFormat='{0:MM.dd.yyyy}'}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+        </Grid>
+
+    </Frame>
+
+</ViewCell>
